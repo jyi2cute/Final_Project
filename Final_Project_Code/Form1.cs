@@ -28,7 +28,7 @@ namespace Final_Project
             string password = passwordBox.Text;
 
             // Replace this with your actual authentication logic
-            if (login(username, password)) MessageBox.Show("Login successful!");
+            if (Login(username, password)) MessageBox.Show("Login successful!");
             else MessageBox.Show("Login unsuccessful!");
 
         }
@@ -52,14 +52,14 @@ namespace Final_Project
                         string line;
                         while ((line = reader.ReadLine()) != null)
                         {
-                            var parts = line.Split(',');
+                            var parts = line.Split('|');
 
                             if (parts[0] == username && parts[1] == password)
                             {
                                 found = true;
                                 Console.WriteLine($"Found login for {username}: {parts[1]}");
-                                pastPurchases.Add(parts[2].ToList());
-                                cart.Add(parts[3].ToList());
+                                //pastPurchases.Add(parts[2].ToList());
+                                //cart.Add(parts[3].ToList());
                                 return true;
                             }
                         }
@@ -71,6 +71,7 @@ namespace Final_Project
 
                     }
                 }
+                return false;
             }
             catch (Exception ex)
             {
