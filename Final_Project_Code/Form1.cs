@@ -28,18 +28,9 @@ namespace Final_Project
             string password = passwordBox.Text;
 
             // Replace this with your actual authentication logic
-            login(username, password);
-            if (username == "your_username" && password == "your_password")
-            {
-                // Successful login
-                MessageBox.Show("Login successful!");
-                // You can navigate to another form or perform other actions here
-            }
-            else
-            {
-                // Failed login
-                MessageBox.Show("Login unsucessful!");
-            }
+            if (login(username, password)) MessageBox.Show("Login successful!");
+            else MessageBox.Show("Login unsuccessful!");
+
         }
 
         private void usernameBox_TextChanged(object sender, EventArgs e)
@@ -47,7 +38,7 @@ namespace Final_Project
 
         }
 
-        private static void login(string username, string password)
+        private static bool Login(string username, string password)
         {
             bool found = false;
             string filePath = "Data.txt";
@@ -67,17 +58,24 @@ namespace Final_Project
                             {
                                 found = true;
                                 Console.WriteLine($"Found login for {username}: {parts[1]}");
-                                pastPurchases = parts[2];
-                                cart = parts[3];
+                                pastPurchases.Add(parts[2].ToList());
+                                cart.Add(parts[3].ToList());
+                                return true;
                             }
                         }
-                        if (!found) Console.WriteLine("No login found.");
+                        if (!found) 
+                        { 
+                            Console.WriteLine("No login found.");
+                            return false;
+                        }
+
                     }
                 }
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Error loading login: {ex.Message}");
+                return false;
             }
         }
     }
