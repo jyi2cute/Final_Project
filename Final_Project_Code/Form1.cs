@@ -5,12 +5,14 @@ namespace Final_Project
     public partial class Form1 : Form
     {
         List<int> pastPurchases = new List<int> { };
-        List<int> cart = new List<int> { };  
+        List<int> cart = new List<int> { };
+     
         public Form1()
         {
             InitializeComponent();
-        }
 
+            
+        }
         private void label1_Click(object sender, EventArgs e)
         {
 
@@ -28,9 +30,13 @@ namespace Final_Project
             string password = passwordBox.Text;
 
             // Replace this with your actual authentication logic
-            if (Login(username, password)) MessageBox.Show("Login successful!");
+            if (Login(username, password)) {
+                MessageBox.Show("Login successful!");
+            }
             else MessageBox.Show("Login unsuccessful!");
 
+            Form2 form2 = new Form2();
+            form2.Show();
         }
 
         private void usernameBox_TextChanged(object sender, EventArgs e)
