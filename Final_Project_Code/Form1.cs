@@ -6,12 +6,14 @@ namespace Final_Project
     {
         List<int> pastPurchases = new List<int> { };
         List<int> cart = new List<int> { };
-     
+
         public Form1()
         {
             InitializeComponent();
+            panel1.Visible = true;
+            panel2.Visible = false;
 
-            
+
         }
         private void label1_Click(object sender, EventArgs e)
         {
@@ -30,7 +32,8 @@ namespace Final_Project
             string password = passwordBox.Text;
 
             // Replace this with your actual authentication logic
-            if (Login(username, password)) {
+            if (Login(username, password))
+            {
                 MessageBox.Show("Login successful!");
             }
             else MessageBox.Show("Login unsuccessful!");
@@ -69,8 +72,8 @@ namespace Final_Project
                                 return true;
                             }
                         }
-                        if (!found) 
-                        { 
+                        if (!found)
+                        {
                             Console.WriteLine("No login found.");
                             return false;
                         }
@@ -84,6 +87,23 @@ namespace Final_Project
                 Console.WriteLine($"Error loading login: {ex.Message}");
                 return false;
             }
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            panel1.Visible = true;
+            panel2.Visible = true;
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Form2 form2 = new Form2();
+            form2.Show();
         }
     }
 }
