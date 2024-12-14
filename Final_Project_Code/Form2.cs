@@ -46,7 +46,7 @@ namespace Final_Project
 
         private void DisplayProducts(string category = "All", string searchQuery = "")
         {
-            flowLayoutPanelProducts.Controls.Clear();
+            flowLayoutPanel1.Controls.Clear();
 
             IEnumerable<Product> filteredProducts = products;
 
@@ -87,9 +87,9 @@ namespace Final_Project
 
                 var ratingLabel = new Label
                 {
-                    Text = product.Ratings.Any() 
-                    ? $"Rating: {new string('★', (int)product.Ratings.Average(r => r.Stars))}" 
-                    : "No ratings yet",                   
+                    Text = product.Ratings.Any()
+                    ? $"Rating: {new string('★', (int)product.Ratings.Average(r => r.Stars))}"
+                    : "No ratings yet",
                     Location = new Point(10, 50),
                     AutoSize = true
                 };
@@ -112,7 +112,7 @@ namespace Final_Project
                 panel.Controls.Add(ratingLabel);
                 panel.Controls.Add(addToCartButton);
 
-                flowLayoutPanelProducts.Controls.Add(panel);
+                flowLayoutPanel1.Controls.Add(panel);
             }
         }
 
@@ -128,10 +128,10 @@ namespace Final_Project
             panel4.Visible = false;
             panel5.Visible = false;
             panel6.Visible = false;
-
             InitializeStore();
         }
 
+        //options page
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
@@ -153,6 +153,7 @@ namespace Final_Project
             panel1.Visible = false;
             panel3.Visible = false;
             panel2.Visible = true;
+            flowLayoutPanel1.Visible = true;
             DisplayProducts("Comfort");
 
 
