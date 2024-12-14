@@ -20,11 +20,28 @@ namespace Final_Project
         private void InitializeStore()
         {
             //these are all the items 
-            products.Add(new Product("Comforter Set", 49.99m, "Comfort", 4, "2 days"));
-            products.Add(new Product("Bluetooth Headphones", 89.99m, "Electronics", 5, "3 days"));
-            products.Add(new Product("Pizza Pack", 15.99m, "Food", 4, "1 day"));
-            products.Add(new Product("Smartwatch", 129.99m, "Electronics", 5, "3 days"));
-            products.Add(new Product("Plush Throw Blanket", 19.99m, "Comfort", 3, "2 days"));
+            products.Add(new Product("Comforter Set", 49.99m, "Comfort", new List<Rating> {
+                new Rating(5, "Super comfy!", "Alice"),
+                new Rating(4, "Good value.", "Bob")
+            }, "2 days"));
+
+            products.Add(new Product("Bluetooth Headphones", 89.99m, "Electronics", new List<Rating> {
+                new Rating(5, "Great sound quality!", "Charlie"),
+                new Rating(4, "Battery life could be better.", "Dana")
+            }, "3 days"));
+
+            products.Add(new Product("Pizza Pack", 15.99m, "Food", new List<Rating> {
+                new Rating(4, "Tastes great!", "Eve")
+            }, "1 day"));
+
+            products.Add(new Product("Smartwatch", 129.99m, "Electronics", new List<Rating> {
+                new Rating(5, "Very convenient!", "Frank"),
+                new Rating(5, "Love it!", "Grace")
+            }, "3 days"));
+
+            products.Add(new Product("Plush Throw Blanket", 19.99m, "Comfort", new List<Rating> {
+                new Rating(3, "Too small for me.", "Hank")
+            }, "2 days"));
         }
 
         private void DisplayProducts(string category = "All", string searchQuery = "")
@@ -70,7 +87,9 @@ namespace Final_Project
 
                 var ratingLabel = new Label
                 {
-                    Text = $"Rating: {new string('★', product.Rating)}",
+                    Text = product.Ratings.Any() 
+                    ? $"Rating: {new string('★', (int)product.Ratings.Average(r => r.Stars))}" 
+                    : "No ratings yet",                   
                     Location = new Point(10, 50),
                     AutoSize = true
                 };
@@ -111,7 +130,6 @@ namespace Final_Project
             panel6.Visible = false;
 
             InitializeStore();
-            DisplayProducts();
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -135,6 +153,8 @@ namespace Final_Project
             panel1.Visible = false;
             panel3.Visible = false;
             panel2.Visible = true;
+            DisplayProducts("Comfort");
+
 
         }
 
@@ -144,6 +164,7 @@ namespace Final_Project
             panel1.Visible = false;
             panel2.Visible = true;
             panel3.Visible = true;
+            DisplayProducts("Electronics");
 
         }
 
@@ -154,6 +175,8 @@ namespace Final_Project
             panel2.Visible = true;
             panel3.Visible = true;
             panel4.Visible = true;
+            DisplayProducts("Food");
+
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
@@ -272,17 +295,35 @@ namespace Final_Project
         public string Name { get; set; }
         public decimal Price { get; set; }
         public string Category { get; set; }
-        public int Rating { get; set; }
+        public List<Rating> Ratings { get; set; }
         public string ShippingTime { get; set; }
 
         //initalize
-        public Product(string name, decimal price, string category, int rating, string shippingTime)
+        public Product(string name, decimal price, string category, List<Rating> ratings, string shippingTime)
         {
             Name = name;
             Price = price;
             Category = category;
-            Rating = rating;
+            Ratings = ratings;
             ShippingTime = shippingTime;
+        }
+    }
+
+    public class Rating
+    {
+        public int Stars { get; private set; }
+        public string Comment { get; private set; }
+        public string Username { get; private set; }
+        public Rating(int stars, string comment, string username)
+        {
+            if (stars < 1 || stars > 5)
+            {
+                throw new ArgumentException("Rating must be between 1 and 5");
+            }
+
+            Stars = stars;
+            Comment = comment;
+            Username = username;
         }
     }
 }

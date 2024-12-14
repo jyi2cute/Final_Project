@@ -52,6 +52,8 @@
             label2 = new Label();
             button8 = new Button();
             button5 = new Button();
+            flowLayoutPanelProducts = new FlowLayoutPanel(); // FlowLayoutPanel here
+
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
@@ -63,6 +65,18 @@
             splitContainer1.Panel2.SuspendLayout();
             splitContainer1.SuspendLayout();
             SuspendLayout();
+
+            //
+            // flowLayoutPanel
+            //
+            flowLayoutPanelProducts.Location = new Point(20, 150); 
+            flowLayoutPanelProducts.Size = new Size(750, 300);
+            flowLayoutPanelProducts.WrapContents = true;
+            flowLayoutPanelProducts.FlowDirection = FlowDirection.LeftToRight; 
+            flowLayoutPanelProducts.AutoScroll = true;
+            // Adding to the form's controls
+            this.Controls.Add(flowLayoutPanelProducts);
+
             // 
             // panel1
             // 
@@ -351,7 +365,6 @@
         }
 
         #endregion
-
         private Panel panel1;
         private Label label1;
         private TextBox textBox1;
@@ -376,5 +389,8 @@
         private Button button7;
         private Button button8;
         private Button button5;
+        private FlowLayoutPanel flowLayoutPanelProducts;
+
+
     }
 }
