@@ -12,7 +12,7 @@ namespace Final_Project
 {
     public partial class Form2 : Form
     {
-    
+
         public Form2()
         {
             InitializeComponent();
@@ -135,12 +135,6 @@ namespace Final_Project
 
         }
 
-        //add in back to home page at the end
-        private void button5_Click(object sender, EventArgs e)
-        {
-            
-
-        }
 
         //added in checkout button for food section page
         private void button6_Click(object sender, EventArgs e)
@@ -150,6 +144,37 @@ namespace Final_Project
             panel3.Visible = true;
             panel4.Visible = true;
             panel5.Visible = true;
+        }
+
+        //added in checkout button for Electronics page
+        private void button7_Click(object sender, EventArgs e)
+        {
+            panel1.Visible = false;
+            panel2.Visible = true;
+            panel3.Visible = true;
+            panel4.Visible = true;
+            panel5.Visible = true;
+        }
+
+        //added in checkout button for Comfort page
+        private void button8_Click(object sender, EventArgs e)
+        {
+            panel1.Visible = false;
+            panel2.Visible = true;
+            panel3.Visible = true;
+            panel4.Visible = true;
+            panel5.Visible = true;
+        }
+
+        //add in back to home page at the end      
+        private void button5_Click_1(object sender, EventArgs e)
+        {
+            panel1.Visible = true;
+            panel2.Visible = false;
+            panel3.Visible = false;
+            panel4.Visible = false;
+            panel5.Visible = false;
+            panel6.Visible = false;
         }
     }
 }
