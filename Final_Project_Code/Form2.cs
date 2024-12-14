@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +14,7 @@ namespace Final_Project
 
     public partial class Form2 : Form
     {
+        private Panel panel7;
         //Create the lists for all the products and the cart
         private List<Product> products = new List<Product>();
         private List<Product> cart = new List<Product>();
@@ -122,15 +124,51 @@ namespace Final_Project
         {
             InitializeComponent();
 
+            //Tommy- created an account button in the top right of home page
+            var accountButton = new Button
+            {
+                Text = "Account",
+                Location = new Point(400, 5),
+                Size = new Size(100, 25)
+            };
+
+            //add click event to button
+            accountButton.Click += AccountButton_Click;
+
+
 
             //Jin - added in home page
             panel1.Visible = true;
+            panel1.Controls.Add(accountButton);
             panel2.Visible = false;
             panel3.Visible = false;
             panel4.Visible = false;
             panel5.Visible = false;
             panel6.Visible = false;
             InitializeStore();
+
+            //created panel7 (account panel)
+            panel7 = new Panel
+            {
+                Location = new Point(0, 0),
+                Size = new Size(800, 600),
+                Visible = false // Initially hidden
+            };
+            this.Controls.Add(panel7);
+        }
+
+
+        private void AccountButton_Click(object sender, EventArgs e)
+        {
+            // Hide other panels and show Panel 7
+            panel1.Visible = false;
+            panel2.Visible = false;
+            panel3.Visible = false;
+            panel4.Visible = false;
+            panel5.Visible = false;
+            panel6.Visible = false;
+            panel7.Visible = true;
+            panel7.BringToFront(); // Ensure Panel 7 is displayed on top
         }
 
         //options page
