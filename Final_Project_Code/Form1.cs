@@ -6,6 +6,7 @@ namespace Final_Project
     {
         List<int> pastPurchases = new List<int> { };
         List<int> cart = new List<int> { };
+        string currentUser = "";
 
         public Form1()
         {
@@ -32,15 +33,10 @@ namespace Final_Project
             string password = passwordBox.Text;
 
             // Replace this with your actual authentication logic
-            if (Login(username, password))
-            {
-                MessageBox.Show("Login successful!");
-            }
-            else MessageBox.Show("Login unsuccessful!");
+            Login(username, password);
 
             // Jin - added in Form 2 to show form 2
-            Form2 form2 = new Form2();
-            form2.Show();
+            
         }
 
         private void usernameBox_TextChanged(object sender, EventArgs e)
@@ -48,7 +44,7 @@ namespace Final_Project
 
         }
 
-        private static bool Login(string username, string password)
+        private static void Login(string username, string password)
         {
             bool found = false;
             string filePath = "Data.txt";
@@ -70,24 +66,59 @@ namespace Final_Project
                                 Console.WriteLine($"Found login for {username}: {parts[1]}");
                                 //pastPurchases.Add(parts[2].ToList());
                                 //cart.Add(parts[3].ToList());
-                                return true;
+                                MessageBox.Show("Login successful!");
+                                currentUser = username;
+
                             }
                         }
                         if (!found)
                         {
                             Console.WriteLine("No login found.");
-                            return false;
+                            MessageBox.Show("Login unsuccessful!");
                         }
 
                     }
-                }
-                return false;
+                }  
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Error loading login: {ex.Message}");
-                return false;
             }
+        }
+
+        private static void Save(string username, List<int> cart, List<int> pastPurchases)
+        {
+            bool found = false;
+            string filePath = "Data.txt";
+            // Read all entries into a list
+            var entries = new List<string>();
+            if (File.Exists(filePath))
+            {
+                entries = File.ReadAllLines(filePath).ToList();
+            }
+
+            // Check if the username already exists
+            for (int i = 0; i < entries.Count; i++)
+            {
+                var parts = entries[i].Split('|');
+                if (parts[0] == username)
+                {
+                    // Update the score for the existing user
+                    entries[i] = ($"{username}|{parts[1]}|{pastPurchases}|{cart}");
+                    found = true;
+                    Console.WriteLine($"Score saved under {username}");
+                }
+            }
+            File.WriteAllLines(filePath, entries);
+        }
+        private static void CreateAccount(string username, string password)
+        {
+            string filePath = "Data.txt";
+            // Read all entries into a list
+            var entries = new List<string>();
+            entries = File.ReadAllLines(filePath).ToList();
+            entries.Add($"{username}|{password}|[]|[]");
+            File.WriteAllLines(filePath, entries);
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -104,6 +135,9 @@ namespace Final_Project
         //Jin - added in create account button to go to form 2
         private void button2_Click(object sender, EventArgs e)
         {
+            string username = usernameInput.Text;
+            string password = passwordInput.Text;
+            CreateAccount(username, password);
             Form2 form2 = new Form2();
             form2.Show();
         }
