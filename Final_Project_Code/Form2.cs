@@ -15,10 +15,11 @@ namespace Final_Project
     public partial class Form2 : Form
     {
         private Panel panel7;
-        //Create the lists for all the products and the cart
+        //Create the lists for all the products and the cart - Dessa
         private List<Product> products = new List<Product>();
         private List<Product> cart = new List<Product>();
 
+        // Dessa Created function 
         private void InitializeStore()
         {
             //these are all the items 
@@ -46,9 +47,18 @@ namespace Final_Project
             }, "2 days"));
         }
 
+        // Dessa Created function to dispkay the products
         private void DisplayProducts(string category = "All", string searchQuery = "")
         {
             flowLayoutPanel1.Controls.Clear();
+
+            if (category == "None")
+            {
+                flowLayoutPanel1.Visible = false; // Hide the flow panel
+                return; // Exit the method early
+            }
+
+            flowLayoutPanel1.Visible = true;
             flowLayoutPanel1.BringToFront();
 
 
@@ -263,6 +273,8 @@ namespace Final_Project
             panel3.Visible = false;
             panel2.Visible = true;
             flowLayoutPanel1.Visible = true;
+
+            //Dessa added display
             DisplayProducts("Comfort");
 
 
@@ -274,6 +286,7 @@ namespace Final_Project
             panel1.Visible = false;
             panel2.Visible = true;
             panel3.Visible = true;
+            //Dessa added display
             DisplayProducts("Electronics");
 
         }
@@ -285,6 +298,7 @@ namespace Final_Project
             panel2.Visible = true;
             panel3.Visible = true;
             panel4.Visible = true;
+            //Dessa added display
             DisplayProducts("Food");
 
         }
@@ -355,35 +369,48 @@ namespace Final_Project
 
         }
 
-
         //Jin - added in checkout button for food section page
         private void button6_Click(object sender, EventArgs e)
         {
+            DisplayProducts("None");
+            flowLayoutPanel1.Controls.Clear();
+            flowLayoutPanel1.Visible = false;
             panel1.Visible = false;
-            panel2.Visible = true;
-            panel3.Visible = true;
-            panel4.Visible = true;
+            panel2.Visible = false;
+            panel3.Visible = false;
+            panel4.Visible = false;
             panel5.Visible = true;
+            panel5.BringToFront();
+
         }
 
         //Jin - added in checkout button for Electronics page
         private void button7_Click(object sender, EventArgs e)
         {
+            flowLayoutPanel1.Controls.Clear();
+            flowLayoutPanel1.Visible = false;
             panel1.Visible = false;
-            panel2.Visible = true;
-            panel3.Visible = true;
-            panel4.Visible = true;
+            panel2.Visible = false;
+            panel3.Visible = false;
+            panel4.Visible = false;
             panel5.Visible = true;
+            button4.BringToFront();
+            panel5.BringToFront();
         }
 
         //Jin - added in checkout button for Comfort page
         private void button8_Click(object sender, EventArgs e)
         {
+            flowLayoutPanel1.Controls.Clear();
+            flowLayoutPanel1.Visible = false;
+
             panel1.Visible = false;
-            panel2.Visible = true;
-            panel3.Visible = true;
-            panel4.Visible = true;
+            panel2.Visible = false;
+            panel3.Visible = false;
+            panel4.Visible = false;
             panel5.Visible = true;
+            panel5.BringToFront();
+
         }
 
         //add in back to home page at the end      
@@ -399,7 +426,7 @@ namespace Final_Project
     }
 
     //Product Class
-    //Dessa
+    //Created by Dessa
     public class Product
     {
         public string Name { get; set; }
@@ -419,6 +446,8 @@ namespace Final_Project
         }
     }
 
+    //Rating Class
+    //Created by Dessa
     public class Rating
     {
         public int Stars { get; private set; }
