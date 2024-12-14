@@ -36,6 +36,7 @@
             label1 = new Label();
             panel2 = new Panel();
             panel3 = new Panel();
+            flowLayoutPanel1 = new FlowLayoutPanel();
             panel4 = new Panel();
             panel5 = new Panel();
             panel6 = new Panel();
@@ -52,7 +53,6 @@
             button7 = new Button();
             label2 = new Label();
             button8 = new Button();
-            flowLayoutPanel1 = new FlowLayoutPanel();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
@@ -348,10 +348,12 @@
             // 
             // flowLayoutPanel1
             // 
+            flowLayoutPanel1.BringToFront();
             flowLayoutPanel1.AutoScroll = true;
             flowLayoutPanel1.Visible = true;
             flowLayoutPanel1.Margin = new Padding(2);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Location = new Point(10, 100);
             flowLayoutPanel1.Size = new Size(512, 228);
             flowLayoutPanel1.TabIndex = 0;
             // 

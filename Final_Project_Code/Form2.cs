@@ -47,6 +47,8 @@ namespace Final_Project
         private void DisplayProducts(string category = "All", string searchQuery = "")
         {
             flowLayoutPanel1.Controls.Clear();
+            flowLayoutPanel1.BringToFront();
+
 
             IEnumerable<Product> filteredProducts = products;
 
