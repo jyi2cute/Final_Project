@@ -125,7 +125,7 @@ namespace Final_Project
             InitializeComponent();
 
             //Tommy- created an account button in the top right of home page
-            var accountButton = new Button
+            Button accountButton = new Button
             {
                 Text = "Account",
                 Location = new Point(400, 5),
@@ -133,7 +133,7 @@ namespace Final_Project
             };
 
             //add click event to button
-            accountButton.Click += AccountButton_Click;
+            accountButton.Click += accountButton_Click;
 
 
 
@@ -154,11 +154,59 @@ namespace Final_Project
                 Size = new Size(800, 600),
                 Visible = false // Initially hidden
             };
+
+            Button homeButton = new Button
+            {
+                Text = "Go to Homepage",
+                Location = new Point(225, 170),
+                Size = new Size(100, 50)
+            };
+
+            Button changePassword = new Button
+            {
+                Text = "Change Password",
+                Location = new Point(225, 30),
+                Size = new Size(100, 40)
+            };
+
+            Button pastPurchases = new Button
+            {
+                Text = "See Past Purchases",
+                Location = new Point(225, 80),
+                Size = new Size(100, 40)
+            };
+
+            Button logout = new Button
+            {
+                Text = "Log Out",
+                Location = new Point(225, 130),
+                Size = new Size(100, 25)
+            };
+
+            //add click event to back button
+            homeButton.Click += homeButton_Click;
+
+            //add click event to change password button
+            changePassword.Click += changePassword_Click;
+
+            //add click event to past purchases button
+            pastPurchases.Click += pastPurchases_Click;
+
+            //add click event to log out button
+            logout.Click += logout_Click;
+
+            //add homeButton to panel 7
+            panel7.Controls.Add(homeButton);
+            panel7.Controls.Add(changePassword);
+            panel7.Controls.Add(pastPurchases);
+            panel7.Controls.Add(logout);
+
             this.Controls.Add(panel7);
+
         }
 
 
-        private void AccountButton_Click(object sender, EventArgs e)
+        private void accountButton_Click(object sender, EventArgs e)
         {
             // Hide other panels and show Panel 7
             panel1.Visible = false;
@@ -169,6 +217,27 @@ namespace Final_Project
             panel6.Visible = false;
             panel7.Visible = true;
             panel7.BringToFront(); // Ensure Panel 7 is displayed on top
+        }
+
+        private void homeButton_Click(Object sender, EventArgs e)
+        {
+            panel7.Visible=false;
+            panel1.Visible=true;
+        }
+
+        private void changePassword_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pastPurchases_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void logout_Click(object sender, EventArgs e)
+        {
+
         }
 
         //options page
