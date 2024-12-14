@@ -38,6 +38,7 @@ namespace Final_Project
             }
             else MessageBox.Show("Login unsuccessful!");
 
+            // Jin - added in Form 2 to show form 2
             Form2 form2 = new Form2();
             form2.Show();
         }
@@ -100,6 +101,7 @@ namespace Final_Project
 
         }
 
+        //Jin - added in create account button to go to form 2
         private void button2_Click(object sender, EventArgs e)
         {
             Form2 form2 = new Form2();

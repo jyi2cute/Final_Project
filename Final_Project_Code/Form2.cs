@@ -123,7 +123,7 @@ namespace Final_Project
             InitializeComponent();
 
 
-            //added in home page
+            //Jin - added in home page
             panel1.Visible = true;
             panel2.Visible = false;
             panel3.Visible = false;
@@ -149,7 +149,7 @@ namespace Final_Project
 
         }
 
-        //added in comfort page
+        //Jin - added in comfort page
         private void button1_Click(object sender, EventArgs e)
         {
             panel1.Visible = false;
@@ -161,7 +161,7 @@ namespace Final_Project
 
         }
 
-        //added in Electronics page
+        //Jin - added in Electronics page
         private void button2_Click(object sender, EventArgs e)
         {
             panel1.Visible = false;
@@ -171,7 +171,7 @@ namespace Final_Project
 
         }
 
-        //added in Food Page
+        //Jin - added in Food Page
         private void button3_Click(object sender, EventArgs e)
         {
             panel1.Visible = false;
@@ -232,7 +232,7 @@ namespace Final_Project
 
         }
 
-        //added in checkout page
+        //Jin - added in checkout page
         private void button4_Click(object sender, EventArgs e)
         {
             panel1.Visible = false;
@@ -249,7 +249,7 @@ namespace Final_Project
         }
 
 
-        //added in checkout button for food section page
+        //Jin - added in checkout button for food section page
         private void button6_Click(object sender, EventArgs e)
         {
             panel1.Visible = false;
@@ -259,7 +259,7 @@ namespace Final_Project
             panel5.Visible = true;
         }
 
-        //added in checkout button for Electronics page
+        //Jin - added in checkout button for Electronics page
         private void button7_Click(object sender, EventArgs e)
         {
             panel1.Visible = false;
@@ -269,7 +269,7 @@ namespace Final_Project
             panel5.Visible = true;
         }
 
-        //added in checkout button for Comfort page
+        //Jin - added in checkout button for Comfort page
         private void button8_Click(object sender, EventArgs e)
         {
             panel1.Visible = false;
