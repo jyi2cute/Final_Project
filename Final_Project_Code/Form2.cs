@@ -50,6 +50,7 @@ namespace Final_Project
         // Dessa Created function to dispkay the products
         private void DisplayProducts(string category = "All", string searchQuery = "")
         {
+            flowLayoutPanel1.Visible = false;
             flowLayoutPanel1.Controls.Clear();
 
             if (category == "None")
@@ -155,6 +156,8 @@ namespace Final_Project
             panel4.Visible = false;
             panel5.Visible = false;
             panel6.Visible = false;
+            flowLayoutPanel1.Visible = false;
+          
             InitializeStore();
 
             //created panel7 (account panel)
@@ -288,7 +291,7 @@ namespace Final_Project
             panel3.Visible = true;
             //Dessa added display
             DisplayProducts("Electronics");
-
+            
         }
 
         //Jin - added in Food Page
@@ -356,12 +359,15 @@ namespace Final_Project
         //Jin - added in checkout page
         private void button4_Click(object sender, EventArgs e)
         {
+            DisplayProducts("None");
+            flowLayoutPanel1.Controls.Clear();
             panel1.Visible = false;
             panel2.Visible = true;
             panel3.Visible = true;
             panel4.Visible = true;
             panel5.Visible = true;
             panel6.Visible = true;
+          
         }
 
         private void panel6_Paint(object sender, PaintEventArgs e)
@@ -374,7 +380,6 @@ namespace Final_Project
         {
             DisplayProducts("None");
             flowLayoutPanel1.Controls.Clear();
-            flowLayoutPanel1.Visible = false;
             panel1.Visible = false;
             panel2.Visible = false;
             panel3.Visible = false;
@@ -387,8 +392,8 @@ namespace Final_Project
         //Jin - added in checkout button for Electronics page
         private void button7_Click(object sender, EventArgs e)
         {
+            DisplayProducts("None");
             flowLayoutPanel1.Controls.Clear();
-            flowLayoutPanel1.Visible = false;
             panel1.Visible = false;
             panel2.Visible = false;
             panel3.Visible = false;
@@ -401,9 +406,8 @@ namespace Final_Project
         //Jin - added in checkout button for Comfort page
         private void button8_Click(object sender, EventArgs e)
         {
-            flowLayoutPanel1.Controls.Clear();
+            DisplayProducts("None");
             flowLayoutPanel1.Visible = false;
-
             panel1.Visible = false;
             panel2.Visible = false;
             panel3.Visible = false;
@@ -416,6 +420,7 @@ namespace Final_Project
         //add in back to home page at the end      
         private void button5_Click_1(object sender, EventArgs e)
         {
+            flowLayoutPanel1.Visible = false;
             panel1.Visible = true;
             panel2.Visible = false;
             panel3.Visible = false;
