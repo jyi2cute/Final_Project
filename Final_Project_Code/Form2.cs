@@ -304,7 +304,8 @@ namespace Final_Project
 
         private void logout_Click(object sender, EventArgs e)
         {
-
+            //Close Form2
+            this.Close();
         }
 
         //options page
