@@ -14,7 +14,6 @@ namespace Final_Project
 
     public partial class Form2 : Form
     {
-        private Panel panel7;
         //Create the lists for all the products and the cart - Dessa
         private List<Product> products = new List<Product>();
         private List<Product> cart = new List<Product>();

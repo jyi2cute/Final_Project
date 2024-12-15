@@ -37,25 +37,26 @@
             panel2 = new Panel();
             panel3 = new Panel();
             panel4 = new Panel();
-            panel5 = new Panel();
             panel6 = new Panel();
             button5 = new Button();
             label8 = new Label();
+            panel5 = new Panel();
             button4 = new Button();
             label5 = new Label();
             button6 = new Button();
+            flowLayoutPanel1 = new FlowLayoutPanel();
             label4 = new Label();
             label3 = new Label();
             button7 = new Button();
             label2 = new Label();
             button8 = new Button();
-            flowLayoutPanel1 = new FlowLayoutPanel();
+            panel7 = new Panel();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
             panel4.SuspendLayout();
-            panel5.SuspendLayout();
             panel6.SuspendLayout();
+            panel5.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -169,19 +170,9 @@
             panel4.Visible = false;
             panel4.Paint += panel4_Paint;
             // 
-            // panel5
-            // 
-            panel5.Controls.Add(button4);
-            panel5.Controls.Add(label5);
-            panel5.Location = new Point(18, 2);
-            panel5.Margin = new Padding(2);
-            panel5.Name = "panel5";
-            panel5.Size = new Size(651, 404);
-            panel5.TabIndex = 1;
-            panel5.Paint += panel5_Paint;
-            // 
             // panel6
             // 
+            panel6.Controls.Add(panel7);
             panel6.Controls.Add(button5);
             panel6.Controls.Add(label8);
             panel6.Location = new Point(18, 13);
@@ -211,6 +202,17 @@
             label8.Size = new Size(405, 50);
             label8.TabIndex = 0;
             label8.Text = "         Congrats your purchase went through! \r\nEnjoy and thank you for shopping at Sundalandz!";
+            // 
+            // panel5
+            // 
+            panel5.Controls.Add(button4);
+            panel5.Controls.Add(label5);
+            panel5.Location = new Point(18, 2);
+            panel5.Margin = new Padding(2);
+            panel5.Name = "panel5";
+            panel5.Size = new Size(651, 404);
+            panel5.TabIndex = 1;
+            panel5.Paint += panel5_Paint;
             // 
             // button4
             // 
@@ -243,6 +245,15 @@
             button6.Text = "Checkout";
             button6.UseVisualStyleBackColor = true;
             button6.Click += button6_Click;
+            // 
+            // flowLayoutPanel1
+            // 
+            flowLayoutPanel1.AutoScroll = true;
+            flowLayoutPanel1.Location = new Point(121, 70);
+            flowLayoutPanel1.Margin = new Padding(2);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Size = new Size(486, 268);
+            flowLayoutPanel1.TabIndex = 0;
             // 
             // label4
             // 
@@ -299,14 +310,12 @@
             button8.UseVisualStyleBackColor = true;
             button8.Click += button8_Click;
             // 
-            // flowLayoutPanel1
+            // panel7
             // 
-            flowLayoutPanel1.AutoScroll = true;
-            flowLayoutPanel1.Location = new Point(121, 70);
-            flowLayoutPanel1.Margin = new Padding(2);
-            flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(486, 268);
-            flowLayoutPanel1.TabIndex = 0;
+            panel7.Location = new Point(149, 252);
+            panel7.Name = "panel7";
+            panel7.Size = new Size(300, 150);
+            panel7.TabIndex = 2;
             // 
             // Form2
             // 
@@ -326,10 +335,10 @@
             panel3.PerformLayout();
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
-            panel5.ResumeLayout(false);
-            panel5.PerformLayout();
             panel6.ResumeLayout(false);
             panel6.PerformLayout();
+            panel5.ResumeLayout(false);
+            panel5.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -356,5 +365,6 @@
         private Button button8;
         private Button button5;
         private FlowLayoutPanel flowLayoutPanel1;
+        private Panel panel7;
     }
 }
