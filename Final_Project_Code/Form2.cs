@@ -276,10 +276,22 @@ namespace Final_Project
                 Width = 200
             };
 
+            Label confirmPasswordLabel = new Label
+            {
+                Text = "Confirm New Password:",
+                Location = new Point(10, 90),
+                AutoSize = true
+            };
+            TextBox confirmPasswordBox = new TextBox
+            {
+                Location = new Point(150, 90),
+                Width = 200
+            };
+
             Button savePasswordButton = new Button
             {
                 Text = "Save Password",
-                Location = new Point(150, 100),
+                Location = new Point(150, 140),
                 Width = 100
             };
 
@@ -287,6 +299,8 @@ namespace Final_Project
             changePasswordPanel.Controls.Add(oldPasswordBox);
             changePasswordPanel.Controls.Add(newPasswordLabel);
             changePasswordPanel.Controls.Add(newPasswordBox);
+            changePasswordPanel.Controls.Add(confirmPasswordLabel);
+            changePasswordPanel.Controls.Add(confirmPasswordBox);
             changePasswordPanel.Controls.Add(savePasswordButton);
 
             this.Controls.Add(changePasswordPanel);
