@@ -165,6 +165,8 @@ namespace Final_Project
         {
             //flowLayoutPanel1.Visible = false;
             flowLayoutPanel1.Controls.Clear();
+            flowLayoutPanel1.Location = new Point(9, 111);
+            flowLayoutPanel1.Size = new Size(646, 310);
             //  flowLayoutPanel1.Invalidate();
 
             if (category == "None")
@@ -663,6 +665,7 @@ namespace Final_Project
             panel3.Visible = true;
             panel4.Visible = true;
             panel5.Visible = true;
+            button10.Visible = true;
             //flowLayoutPanel1.Location = new Point(88, 111);
             //flowLayoutPanel1.Size = new Size(487, 193);
             //button4.BringToFront();
