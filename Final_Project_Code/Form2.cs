@@ -20,6 +20,9 @@ namespace Final_Project
         //Create the lists for all the products and the cart - Dessa
         private List<Product> products = new List<Product>();
         private List<Product> cart = new List<Product>();
+        private TextBox oldPasswordBox;
+        private TextBox newPasswordBox;
+        private TextBox confirmPasswordBox;
 
 
         // Dessa Created function 
@@ -364,7 +367,7 @@ namespace Final_Project
                 Location = new Point(10, 10),
                 AutoSize = true
             };
-            TextBox oldPasswordBox = new TextBox
+            oldPasswordBox = new TextBox
             {
                 Location = new Point(150, 10),
                 Width = 200
@@ -376,7 +379,7 @@ namespace Final_Project
                 Location = new Point(10, 50),
                 AutoSize = true
             };
-            TextBox newPasswordBox = new TextBox
+            newPasswordBox = new TextBox
             {
                 Location = new Point(150, 50),
                 Width = 200
@@ -388,7 +391,7 @@ namespace Final_Project
                 Location = new Point(10, 90),
                 AutoSize = true
             };
-            TextBox confirmPasswordBox = new TextBox
+            confirmPasswordBox = new TextBox
             {
                 Location = new Point(150, 90),
                 Width = 200
@@ -408,6 +411,8 @@ namespace Final_Project
             changePasswordPanel.Controls.Add(confirmPasswordLabel);
             changePasswordPanel.Controls.Add(confirmPasswordBox);
             changePasswordPanel.Controls.Add(savePasswordButton);
+
+            savePasswordButton.Click += savePasswordButton_Click;
 
             this.Controls.Add(changePasswordPanel);
 
@@ -631,12 +636,12 @@ namespace Final_Project
             for (int i = 0; i < entries.Count; i++)
             {
                 var parts = entries[i].Split('|');
-                if (parts[1].Equals(oldPasswordBox.text) && !found)
+                if (parts.Length > 1 && parts[1].Equals(oldPasswordBox.Text) && !found)
                 {
                     
 
                     // Update the password for current user
-                    entries[i] = ($"{parts[0]}|{newPasswordBox.text}|{parts[2]}|{parts[3]}");
+                    entries[i] = ($"{parts[0]}|{newPasswordBox.Text}|{parts[2]}|{parts[3]}");
                     //user, password, pastpurchases separated by commas, cart separated by commas
                     found = true;//stop searching once it is found
                     Console.WriteLine($"Data saved under {parts[0]}");
@@ -750,4 +755,4 @@ namespace Final_Project
         }
     }
     
-}
+
