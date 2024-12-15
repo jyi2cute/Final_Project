@@ -81,7 +81,7 @@ namespace Final_Project
             if (!string.IsNullOrWhiteSpace(searchQuery))
             {
                 filteredProducts = filteredProducts.Where(p => p.Name.ToLower().Contains(searchQuery.ToLower()));
-            }
+            } 
 
             //display all the prodects when filtered
             foreach (var product in filteredProducts)
@@ -499,6 +499,40 @@ namespace Final_Project
         {
 
         }
+
+        //change password (yuri)
+        private void savePasswordButton_Click(object sender, EventArgs e)
+        {
+            
+            bool found = false;
+            string filePath = "../../../Data.txt";
+
+            // Read all entries into a list
+            var entries = new List<string>();
+            if (File.Exists(filePath))
+            {
+                entries = File.ReadAllLines(filePath).ToList();
+            }
+
+            // Check if the username already exists
+            for (int i = 0; i < entries.Count; i++)
+            {
+                var parts = entries[i].Split('|');
+                if (parts[1].Equals(oldPasswordBox.text) && !found)
+                {
+                    
+
+                    // Update the password for current user
+                    entries[i] = ($"{parts[0]}|{newPasswordBox.text}|{parts[2]}|{parts[3]}");
+                    //user, password, pastpurchases separated by commas, cart separated by commas
+                    found = true;//stop searching once it is found
+                    Console.WriteLine($"Data saved under {parts[0]}");
+                }
+            }
+            if (!found) Console.WriteLine("Error"); //if something messed up and no user is found, declare that.
+            File.WriteAllLines(filePath, entries);
+        }
+    }
     }
 
     //Product Class
@@ -526,7 +560,56 @@ namespace Final_Project
         {
                 return $"{Name},{Price},{Category},{Ratings},{ShippingTime}";
         }
+
+
+    //save data function (yuri)
+    public static void Save(string username, List<Product> cart, List<Product> pastPurchases)
+    {
+        bool found = false;
+        string filePath = "../../../Data.txt";
+
+        String[] storedCartArray = new String[cart.Count]; //will hold the multiple ToString of products
+        String[] pastPurchaseArray = new String[pastPurchases.Count]; //will hold the multiple ToString of past purchases
+
+        // Read all entries into a list
+        var entries = new List<string>();
+        if (File.Exists(filePath))
+        {
+            entries = File.ReadAllLines(filePath).ToList();
+        }
+
+        // Check if the username already exists
+        for (int i = 0; i < entries.Count; i++)
+        {
+            var parts = entries[i].Split('|');
+            if (parts[0].Equals(username) && !found)
+            {
+                //iterate through both list and assign them to arrays to be stored, breaking them into parts
+                //Convert from product to array to string for saving and then reverse when pulling
+                //doesn't account for duplicates yet.
+                foreach (Product item in cart)
+                {
+                    storedCartArray[cart.IndexOf(item)] = (item.ToString());
+                }
+                foreach (Product item in pastPurchases)
+                {
+                    storedCartArray[pastPurchases.IndexOf(item)] = (item.ToString());
+                }
+
+                // Update the data for current user
+                entries[i] = ($"{username}|{parts[1]}|{String.Join(',', pastPurchases)}|{String.Join(',', storedCartArray)}");
+
+                //user, password, pastpurchases separated by commas, cart separated by commas
+                found = true;//stop searching once it is found
+                Console.WriteLine($"Data saved under {username}");
+
+
+            }
+        }
+        if (!found) Console.WriteLine("Error"); //if something messed up and no user is found, declare that.
+        File.WriteAllLines(filePath, entries);
     }
+}
 
     //Rating Class
     //Created by Dessa

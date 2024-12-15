@@ -4,8 +4,8 @@ namespace Final_Project
 {
     public partial class Form1 : Form
     {
-        List<int> pastPurchases = new List<int> { };
-        List<int> cart = new List<int> { };
+        //List<int> pastPurchases = new List<int> { };
+        //List<int> cart = new List<int> { };
         string currentUser = "";
 
         public Form1()
@@ -47,6 +47,8 @@ namespace Final_Project
 
         }
 
+        //All account functions (Login, register, save and load data, change password in form2, lead Yuri, adjustments by others to
+        //better implement with rest of )
         private static Boolean Login(string username, string password)
         {
             bool found = false;
@@ -71,7 +73,7 @@ namespace Final_Project
                                 var cart = parts[3].Split(',');
                                 MessageBox.Show("Login successful!");
                                 string currentUser = username;
-                                return true;
+                                return true; 
                             }
                         }
                         if (!found)
@@ -91,49 +93,6 @@ namespace Final_Project
             return false;
         }
 
-        private static void Save(string username, List<Product> cart, List<Product> pastPurchases)
-        {
-            bool found = false;
-            string filePath = "../../../Data.txt";
-
-            String[] storedCartArray = new String[cart.Count]; //will hold the multiple ToString of products
-            String[] pastPurchaseArray = new String[pastPurchases.Count]; //will hold the multiple ToString of past purchases
-
-            // Read all entries into a list
-            var entries = new List<string>();
-            if (File.Exists(filePath))
-            {
-                entries = File.ReadAllLines(filePath).ToList();
-            }
-
-            // Check if the username already exists
-            for (int i = 0; i < entries.Count; i++)
-            {
-                var parts = entries[i].Split('|');
-                if (parts[0].Equals(username) && !found)
-                {
-                    //iterate through both list and assign them to arrays to be stored, breaking them into parts
-                    //Convert from product to array to string for saving and then reverse when pulling
-                    //doesn't account for duplicates yet.
-                    foreach (Product item in cart)
-                    {
-                        storedCartArray[cart.IndexOf(item)] = (item.ToString());
-                    }
-                    foreach (Product item in pastPurchases)
-                    {
-                        storedCartArray[pastPurchases.IndexOf(item)] = (item.ToString());
-                    }
-
-                    // Update the data for current user
-                    entries[i] = ($"{username}|{parts[1]}|{String.Join(',',pastPurchases)}|{String.Join(',',storedCartArray)}");
-                                    //user, password, pastpurchases separated by commas, cart separated by commas
-                    found = true;//stop searching once it is found
-                    Console.WriteLine($"Data saved under {username}");
-                }
-            }
-            if (!found) Console.WriteLine("Error"); //if something messed up and no user is found, declare that.
-            File.WriteAllLines(filePath, entries);
-        }
         private static void CreateAccount(string username, string password)
         {
             string filePath = "../../../Data.txt";
