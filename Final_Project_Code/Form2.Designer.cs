@@ -206,7 +206,7 @@
             // panel7
             // 
             panel7.Location = new Point(242, 18);
-            panel7.Margin = new Padding(2, 2, 2, 2);
+            panel7.Margin = new Padding(2);
             panel7.Name = "panel7";
             panel7.Size = new Size(240, 120);
             panel7.TabIndex = 2;
@@ -234,7 +234,7 @@
             // 
             // button4
             // 
-            button4.Location = new Point(228, 234);
+            button4.Location = new Point(231, 288);
             button4.Margin = new Padding(2);
             button4.Name = "button4";
             button4.Size = new Size(90, 27);
