@@ -42,10 +42,10 @@
             panel7 = new Panel();
             button5 = new Button();
             label8 = new Label();
+            flowLayoutPanel1 = new FlowLayoutPanel();
             button4 = new Button();
             label5 = new Label();
             button6 = new Button();
-            flowLayoutPanel1 = new FlowLayoutPanel();
             label4 = new Label();
             label3 = new Label();
             button7 = new Button();
@@ -69,7 +69,7 @@
             panel1.Location = new Point(28, 21);
             panel1.Margin = new Padding(2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(715, 460);
+            panel1.Size = new Size(718, 459);
             panel1.TabIndex = 0;
             panel1.Visible = false;
             panel1.Paint += panel1_Paint;
@@ -138,7 +138,7 @@
             panel2.Location = new Point(30, 21);
             panel2.Margin = new Padding(2);
             panel2.Name = "panel2";
-            panel2.Size = new Size(697, 444);
+            panel2.Size = new Size(702, 446);
             panel2.TabIndex = 5;
             panel2.Visible = false;
             panel2.Paint += panel2_Paint;
@@ -221,6 +221,16 @@
             label8.TabIndex = 0;
             label8.Text = "         Congrats your purchase went through! \r\nEnjoy and thank you for shopping at Sundalandz!";
             // 
+            // flowLayoutPanel1
+            // 
+            flowLayoutPanel1.AutoScroll = true;
+            flowLayoutPanel1.Location = new Point(165, 56);
+            flowLayoutPanel1.Margin = new Padding(2);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Size = new Size(486, 268);
+            flowLayoutPanel1.TabIndex = 0;
+            flowLayoutPanel1.Visible = false;
+            // 
             // button4
             // 
             button4.Location = new Point(285, 292);
@@ -252,16 +262,6 @@
             button6.Text = "Checkout";
             button6.UseVisualStyleBackColor = true;
             button6.Click += button6_Click;
-            // 
-            // flowLayoutPanel1
-            // 
-            flowLayoutPanel1.AutoScroll = true;
-            flowLayoutPanel1.Location = new Point(165, 56);
-            flowLayoutPanel1.Margin = new Padding(2);
-            flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(486, 268);
-            flowLayoutPanel1.TabIndex = 0;
-            flowLayoutPanel1.Visible = false;
             // 
             // label4
             // 
@@ -322,7 +322,7 @@
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1355, 980);
+            ClientSize = new Size(765, 489);
             Controls.Add(panel2);
             Controls.Add(panel1);
             Margin = new Padding(2);
