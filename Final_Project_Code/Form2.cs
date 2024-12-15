@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Text;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace Final_Project
 {
@@ -17,6 +20,7 @@ namespace Final_Project
         //Create the lists for all the products and the cart - Dessa
         private List<Product> products = new List<Product>();
         private List<Product> cart = new List<Product>();
+        
 
         // Dessa Created function 
         private void InitializeStore()
@@ -252,7 +256,7 @@ namespace Final_Project
 
         private void logout_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         //options page
@@ -460,6 +464,12 @@ namespace Final_Project
             Ratings = ratings;
             ShippingTime = shippingTime;
         }
+        //Method
+        //Created by Shawn, optimized for saving to Data.txt
+        public override string ToString()
+        {
+                return $"{Name},{Price},{Category},{Ratings},{ShippingTime}";
+        }
     }
 
     //Rating Class
@@ -480,5 +490,12 @@ namespace Final_Project
             Comment = comment;
             Username = username;
         }
+        //Method
+        //Created by Shawn, optimized for saving to Data.txt
+        public override string ToString()
+        {
+            return $"{Stars},{Comment},{Username}";
+        }
     }
+    
 }
