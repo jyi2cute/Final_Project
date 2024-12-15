@@ -30,6 +30,7 @@
         {
             panel1 = new Panel();
             button3 = new Button();
+            flowLayoutPanel1 = new FlowLayoutPanel();
             button2 = new Button();
             button1 = new Button();
             textBox1 = new TextBox();
@@ -42,7 +43,6 @@
             panel7 = new Panel();
             button5 = new Button();
             label8 = new Label();
-            flowLayoutPanel1 = new FlowLayoutPanel();
             button4 = new Button();
             label5 = new Label();
             button6 = new Button();
@@ -69,7 +69,7 @@
             panel1.Location = new Point(28, 21);
             panel1.Margin = new Padding(2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(718, 459);
+            panel1.Size = new Size(791, 539);
             panel1.TabIndex = 0;
             panel1.Visible = false;
             panel1.Paint += panel1_Paint;
@@ -84,6 +84,17 @@
             button3.Text = "Food";
             button3.UseVisualStyleBackColor = true;
             button3.Click += button3_Click;
+            // 
+            // flowLayoutPanel1
+            // 
+            flowLayoutPanel1.AutoScroll = true;
+            flowLayoutPanel1.Location = new Point(15, 63);
+            flowLayoutPanel1.Margin = new Padding(2);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Size = new Size(486, 268);
+            flowLayoutPanel1.TabIndex = 0;
+            flowLayoutPanel1.Visible = false;
+            flowLayoutPanel1.Paint += flowLayoutPanel1_Paint;
             // 
             // button2
             // 
@@ -135,10 +146,10 @@
             panel2.Controls.Add(panel3);
             panel2.Controls.Add(label2);
             panel2.Controls.Add(button8);
-            panel2.Location = new Point(30, 21);
+            panel2.Location = new Point(41, 21);
             panel2.Margin = new Padding(2);
             panel2.Name = "panel2";
-            panel2.Size = new Size(702, 446);
+            panel2.Size = new Size(755, 518);
             panel2.TabIndex = 5;
             panel2.Visible = false;
             panel2.Paint += panel2_Paint;
@@ -148,10 +159,10 @@
             panel3.Controls.Add(panel4);
             panel3.Controls.Add(label3);
             panel3.Controls.Add(button7);
-            panel3.Location = new Point(2, 2);
+            panel3.Location = new Point(12, 2);
             panel3.Margin = new Padding(2);
             panel3.Name = "panel3";
-            panel3.Size = new Size(684, 433);
+            panel3.Size = new Size(737, 497);
             panel3.TabIndex = 6;
             panel3.Visible = false;
             // 
@@ -160,10 +171,10 @@
             panel4.Controls.Add(panel5);
             panel4.Controls.Add(button6);
             panel4.Controls.Add(label4);
-            panel4.Location = new Point(2, 2);
+            panel4.Location = new Point(12, 2);
             panel4.Margin = new Padding(2);
             panel4.Name = "panel4";
-            panel4.Size = new Size(671, 418);
+            panel4.Size = new Size(709, 455);
             panel4.TabIndex = 7;
             panel4.Visible = false;
             panel4.Paint += panel4_Paint;
@@ -171,13 +182,12 @@
             // panel5
             // 
             panel5.Controls.Add(panel6);
-            panel5.Controls.Add(flowLayoutPanel1);
             panel5.Controls.Add(button4);
             panel5.Controls.Add(label5);
-            panel5.Location = new Point(29, 14);
+            panel5.Location = new Point(24, 18);
             panel5.Margin = new Padding(2);
             panel5.Name = "panel5";
-            panel5.Size = new Size(651, 404);
+            panel5.Size = new Size(661, 411);
             panel5.TabIndex = 1;
             panel5.Paint += panel5_Paint;
             // 
@@ -186,16 +196,16 @@
             panel6.Controls.Add(panel7);
             panel6.Controls.Add(button5);
             panel6.Controls.Add(label8);
-            panel6.Location = new Point(9, 4);
+            panel6.Location = new Point(21, 22);
             panel6.Margin = new Padding(2);
             panel6.Name = "panel6";
-            panel6.Size = new Size(633, 380);
+            panel6.Size = new Size(621, 350);
             panel6.TabIndex = 3;
             panel6.Paint += panel6_Paint;
             // 
             // panel7
             // 
-            panel7.Location = new Point(304, 5);
+            panel7.Location = new Point(303, 22);
             panel7.Name = "panel7";
             panel7.Size = new Size(300, 150);
             panel7.TabIndex = 2;
@@ -220,16 +230,6 @@
             label8.Size = new Size(405, 50);
             label8.TabIndex = 0;
             label8.Text = "         Congrats your purchase went through! \r\nEnjoy and thank you for shopping at Sundalandz!";
-            // 
-            // flowLayoutPanel1
-            // 
-            flowLayoutPanel1.AutoScroll = true;
-            flowLayoutPanel1.Location = new Point(165, 56);
-            flowLayoutPanel1.Margin = new Padding(2);
-            flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(486, 268);
-            flowLayoutPanel1.TabIndex = 0;
-            flowLayoutPanel1.Visible = false;
             // 
             // button4
             // 
@@ -322,9 +322,10 @@
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(765, 489);
+            ClientSize = new Size(833, 582);
             Controls.Add(panel2);
             Controls.Add(panel1);
+            Controls.Add(flowLayoutPanel1);
             Margin = new Padding(2);
             Name = "Form2";
             Text = "Form2";

@@ -20,7 +20,7 @@ namespace Final_Project
         //Create the lists for all the products and the cart - Dessa
         private List<Product> products = new List<Product>();
         private List<Product> cart = new List<Product>();
-        
+
 
         // Dessa Created function 
         private void InitializeStore()
@@ -55,7 +55,7 @@ namespace Final_Project
         {
             //flowLayoutPanel1.Visible = false;
             flowLayoutPanel1.Controls.Clear();
-          //  flowLayoutPanel1.Invalidate();
+            //  flowLayoutPanel1.Invalidate();
 
             if (category == "None")
             {
@@ -162,8 +162,8 @@ namespace Final_Project
             panel4.Visible = false;
             panel5.Visible = false;
             panel6.Visible = false;
-            flowLayoutPanel1.Visible = false;
-          
+            //flowLayoutPanel1.Visible = false;
+
             InitializeStore();
 
             //created panel7 (account panel)
@@ -240,8 +240,8 @@ namespace Final_Project
 
         private void homeButton_Click(Object sender, EventArgs e)
         {
-            panel7.Visible=false;
-            panel1.Visible=true;
+            panel7.Visible = false;
+            panel1.Visible = true;
         }
 
         private void changePassword_Click(object sender, EventArgs e)
@@ -256,7 +256,7 @@ namespace Final_Project
 
         private void logout_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         //options page
@@ -297,7 +297,7 @@ namespace Final_Project
             panel3.Visible = true;
             //Dessa added display
             DisplayProducts("Electronics");
-            
+
         }
 
         //Jin - added in Food Page
@@ -371,8 +371,8 @@ namespace Final_Project
             panel4.Visible = true;
             panel5.Visible = true;
             panel6.Visible = true;
-            panel5.BringToFront();
-          
+         //   panel5.BringToFront();
+
         }
 
         private void panel6_Paint(object sender, PaintEventArgs e)
@@ -388,7 +388,7 @@ namespace Final_Project
             panel3.Visible = false;
             panel4.Visible = false;
             panel5.Visible = true;
-            panel5.BringToFront();
+        //    panel5.BringToFront();
 
 
         }
@@ -402,7 +402,7 @@ namespace Final_Project
             panel4.Visible = false;
             panel5.Visible = true;
             button4.BringToFront();
-            panel5.BringToFront();
+          //  panel5.BringToFront();
         }
 
         //Jin - added in checkout button for Comfort page
@@ -413,7 +413,7 @@ namespace Final_Project
             panel3.Visible = false;
             panel4.Visible = false;
             panel5.Visible = true;
-            panel5.BringToFront();
+           // panel5.BringToFront();
 
         }
 
@@ -427,6 +427,11 @@ namespace Final_Project
             panel4.Visible = false;
             panel5.Visible = false;
             panel6.Visible = false;
+        }
+
+        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 
