@@ -32,7 +32,6 @@
             button3 = new Button();
             button2 = new Button();
             button1 = new Button();
-            textBox1 = new TextBox();
             label1 = new Label();
             flowLayoutPanel1 = new FlowLayoutPanel();
             panel2 = new Panel();
@@ -47,10 +46,13 @@
             label5 = new Label();
             button6 = new Button();
             label4 = new Label();
+            button11 = new Button();
             label3 = new Label();
             button7 = new Button();
+            button10 = new Button();
             label2 = new Label();
             button8 = new Button();
+            button9 = new Button();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
@@ -64,12 +66,11 @@
             panel1.Controls.Add(button3);
             panel1.Controls.Add(button2);
             panel1.Controls.Add(button1);
-            panel1.Controls.Add(textBox1);
             panel1.Controls.Add(label1);
             panel1.Location = new Point(22, 17);
             panel1.Margin = new Padding(2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(633, 431);
+            panel1.Size = new Size(621, 436);
             panel1.TabIndex = 0;
             panel1.Visible = false;
             panel1.Paint += panel1_Paint;
@@ -109,14 +110,6 @@
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(204, 96);
-            textBox1.Margin = new Padding(2);
-            textBox1.Name = "textBox1";
-            textBox1.PlaceholderText = "What are you looking for?";
-            textBox1.Size = new Size(182, 27);
-            textBox1.TabIndex = 1;
-            textBox1.TextAlign = HorizontalAlignment.Center;
-            textBox1.TextChanged += textBox1_TextChanged;
             // 
             // label1
             // 
@@ -146,10 +139,11 @@
             panel2.Controls.Add(panel3);
             panel2.Controls.Add(label2);
             panel2.Controls.Add(button8);
+            panel2.Controls.Add(button9);
             panel2.Location = new Point(33, 17);
             panel2.Margin = new Padding(2);
             panel2.Name = "panel2";
-            panel2.Size = new Size(604, 414);
+            panel2.Size = new Size(598, 421);
             panel2.TabIndex = 5;
             panel2.Visible = false;
             panel2.Paint += panel2_Paint;
@@ -159,10 +153,11 @@
             panel3.Controls.Add(panel4);
             panel3.Controls.Add(label3);
             panel3.Controls.Add(button7);
-            panel3.Location = new Point(10, 2);
+            panel3.Controls.Add(button10);
+            panel3.Location = new Point(2, 9);
             panel3.Margin = new Padding(2);
             panel3.Name = "panel3";
-            panel3.Size = new Size(590, 398);
+            panel3.Size = new Size(576, 410);
             panel3.TabIndex = 6;
             panel3.Visible = false;
             // 
@@ -171,10 +166,11 @@
             panel4.Controls.Add(panel5);
             panel4.Controls.Add(button6);
             panel4.Controls.Add(label4);
-            panel4.Location = new Point(10, 2);
+            panel4.Controls.Add(button11);
+            panel4.Location = new Point(12, 12);
             panel4.Margin = new Padding(2);
             panel4.Name = "panel4";
-            panel4.Size = new Size(567, 364);
+            panel4.Size = new Size(552, 358);
             panel4.TabIndex = 7;
             panel4.Visible = false;
             panel4.Paint += panel4_Paint;
@@ -184,10 +180,10 @@
             panel5.Controls.Add(panel6);
             panel5.Controls.Add(button4);
             panel5.Controls.Add(label5);
-            panel5.Location = new Point(11, 10);
+            panel5.Location = new Point(8, 14);
             panel5.Margin = new Padding(2);
             panel5.Name = "panel5";
-            panel5.Size = new Size(529, 329);
+            panel5.Size = new Size(525, 326);
             panel5.TabIndex = 1;
             panel5.Paint += panel5_Paint;
             // 
@@ -196,7 +192,7 @@
             panel6.Controls.Add(panel7);
             panel6.Controls.Add(button5);
             panel6.Controls.Add(label8);
-            panel6.Location = new Point(16, 21);
+            panel6.Location = new Point(10, 24);
             panel6.Margin = new Padding(2);
             panel6.Name = "panel6";
             panel6.Size = new Size(497, 280);
@@ -205,10 +201,10 @@
             // 
             // panel7
             // 
-            panel7.Location = new Point(242, 18);
+            panel7.Location = new Point(433, 5);
             panel7.Margin = new Padding(2);
             panel7.Name = "panel7";
-            panel7.Size = new Size(240, 120);
+            panel7.Size = new Size(62, 120);
             panel7.TabIndex = 2;
             // 
             // button5
@@ -275,6 +271,17 @@
             label4.Text = "Food";
             label4.Click += label4_Click;
             // 
+            // button11
+            // 
+            button11.Location = new Point(18, 14);
+            button11.Margin = new Padding(2);
+            button11.Name = "button11";
+            button11.Size = new Size(90, 27);
+            button11.TabIndex = 2;
+            button11.Text = "Back";
+            button11.UseVisualStyleBackColor = true;
+            button11.Click += button11_Click;
+            // 
             // label3
             // 
             label3.AutoSize = true;
@@ -296,6 +303,17 @@
             button7.Text = "Checkout";
             button7.UseVisualStyleBackColor = true;
             button7.Click += button7_Click;
+            // 
+            // button10
+            // 
+            button10.Location = new Point(20, 12);
+            button10.Margin = new Padding(2);
+            button10.Name = "button10";
+            button10.Size = new Size(90, 27);
+            button10.TabIndex = 9;
+            button10.Text = "Back";
+            button10.UseVisualStyleBackColor = true;
+            button10.Click += button10_Click;
             // 
             // label2
             // 
@@ -319,11 +337,22 @@
             button8.UseVisualStyleBackColor = true;
             button8.Click += button8_Click;
             // 
+            // button9
+            // 
+            button9.Location = new Point(22, 14);
+            button9.Margin = new Padding(2);
+            button9.Name = "button9";
+            button9.Size = new Size(90, 27);
+            button9.TabIndex = 8;
+            button9.Text = "Back";
+            button9.UseVisualStyleBackColor = true;
+            button9.Click += button9_Click;
+            // 
             // Form2
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(666, 466);
+            ClientSize = new Size(658, 462);
             Controls.Add(panel2);
             Controls.Add(panel1);
             Controls.Add(flowLayoutPanel1);
@@ -348,7 +377,6 @@
         #endregion
         private Panel panel1;
         private Label label1;
-        private TextBox textBox1;
         private Button button1;
         private Button button3;
         private Button button2;
@@ -369,5 +397,8 @@
         private Button button5;
         private FlowLayoutPanel flowLayoutPanel1;
         private Panel panel7;
+        private Button button9;
+        private Button button10;
+        private Button button11;
     }
 }

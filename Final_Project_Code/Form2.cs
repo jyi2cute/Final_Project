@@ -166,6 +166,8 @@ namespace Final_Project
         {
             //flowLayoutPanel1.Visible = false;
             flowLayoutPanel1.Controls.Clear();
+            flowLayoutPanel1.Location = new Point(9, 111);
+            flowLayoutPanel1.Size = new Size(646, 310);
             //  flowLayoutPanel1.Invalidate();
 
             if (category == "None")
@@ -668,6 +670,7 @@ namespace Final_Project
             panel3.Visible = true;
             panel4.Visible = true;
             panel5.Visible = true;
+            button10.Visible = true;
             //flowLayoutPanel1.Location = new Point(88, 111);
             //flowLayoutPanel1.Size = new Size(487, 193);
             //button4.BringToFront();
@@ -759,6 +762,35 @@ namespace Final_Project
             if (!found) Console.WriteLine("Error"); //if something messed up and no user is found, declare that.
             File.WriteAllLines(filePath, entries);
         }
+
+        //Jin - Back button for home page from Comfort Page
+        private void button9_Click(object sender, EventArgs e)
+        {
+            panel1.Visible = true;
+            panel2.Visible = false;
+            panel3.Visible = false;
+            flowLayoutPanel1.Visible = false;
+        }
+
+        //Jin - Back button for home page from Electronics Page
+        private void button10_Click(object sender, EventArgs e)
+        {
+            panel1.Visible = true;
+            panel2.Visible = false;
+            panel3.Visible = false;
+            flowLayoutPanel1.Visible = false;
+        }
+
+        //Jin - Back button for home page from Food Page
+        private void button11_Click(object sender, EventArgs e)
+        {
+            panel1.Visible = true;
+            panel2.Visible = false;
+            panel3.Visible = false;
+            flowLayoutPanel1.Visible = false;
+        }
+    }
+}
 
         //save data function (yuri)
         public static void Save(string username, List<Product> cart, List<Product> pastPurchases)
