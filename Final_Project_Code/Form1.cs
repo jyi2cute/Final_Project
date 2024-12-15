@@ -1,4 +1,7 @@
+using System.ComponentModel;
+using System.Xml.Linq;
 using static System.Formats.Asn1.AsnWriter;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace Final_Project
 {
@@ -6,15 +9,18 @@ namespace Final_Project
     {
         //List<int> pastPurchases = new List<int> { };
         //List<int> cart = new List<int> { };
-        string currentUser = "";
-
+        public string currentUser = "";
+        public List<Product> pastPurchases = new List<Product>(); // will append cart to this
+        public List<Rating> oldRatings = new List<Rating>(); //used for rating in Load function
+        public static Form1 instance;
         public Form1()
         {
             InitializeComponent();
             panel1.Visible = true;
             panel2.Visible = false;
-
-
+            instance = this;
+            currentUser = currentUser;
+            pastPurchases = pastPurchases;
         }
         private void label1_Click(object sender, EventArgs e)
         {
@@ -69,11 +75,48 @@ namespace Final_Project
                             {
                                 found = true;
                                 Console.WriteLine($"Found login for {username}: {parts[1]}");
-                                var pastPurchases = parts[2].Split(',');
+                                Form1.instance.currentUser = parts[0];
+                                string[] loadedPurchases = parts[2].Split(',');
+
+                                //iterate through this array and add these values to loaded purchases
+                                //if this isn't empty
+                                if (loadedPurchases.Length > 1)
+                                {
+                                    foreach (string purchase in loadedPurchases)
+                                    {
+                                        //"{Name},{Price},{Category},{Ratings},{ShippingTime}"
+                                        //ratings being their own List
+                                        string name = purchase[0].ToString();
+                                        int price = int.Parse(purchase[1].ToString());
+                                        string category = purchase[2].ToString();
+
+                                        //$"{Stars},{Comment},{Username}";
+                                        //because rating is a List of ratings, we must split this section by ~ then each part by :
+                                        string[] ratingLines = purchase[3].ToString().Split('~');
+                                        foreach (string rating in ratingLines)
+                                        {
+                                            string[] ratingParts = purchase[3].ToString().Split(':');
+                                            foreach (string text in ratingParts)
+                                            {
+                                                //(ratingStars, ratingComment, ratingUser);
+                                                int ratingStars = int.Parse(ratingParts[0].ToString());
+                                                string ratingComment = ratingParts[1].ToString();
+                                                string ratingUser = ratingParts[2].ToString();
+                                                Rating oldRate = new Rating(ratingStars, ratingComment, ratingUser);// one line for rating
+                                                Form1.instance.oldRatings.Add(oldRate);
+                                            }
+                                        }
+
+                                        string shippingTime = purchase[4].ToString();
+                                        Product tempPurchase = new Product(name, price, category, Form1.instance.oldRatings, shippingTime);
+                                        Form1.instance.pastPurchases.Add(tempPurchase);
+                                    }
+                                }
+                                
                                 var cart = parts[3].Split(',');
                                 MessageBox.Show("Login successful!");
                                 string currentUser = username;
-                                return true; 
+                                return true;
                             }
                         }
                         if (!found)

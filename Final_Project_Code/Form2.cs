@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -24,7 +25,7 @@ namespace Final_Project
         private TextBox newPasswordBox;
         private TextBox confirmPasswordBox;
         private Panel changePasswordPanel;
-
+        public static Form2 instance;
 
         // Dessa Created function 
         private void InitializeStore()
@@ -65,7 +66,7 @@ namespace Final_Project
 
             products.Add(new Product("Giant Chocolate Bar", 12.99m, "Food", new List<Rating> {
                 new Rating(5, "Worth every calorie!", "Mallory"),
-                new Rating(4, "Couldn’t finish it in one sitting, so sad.", "Nate")
+                new Rating(4, "Couldn’t finish it in one sitting so sad.", "Nate")
             }, "2 days"));
 
             products.Add(new Product("Weighted Blanket", 59.99m, "Comfort", new List<Rating> {
@@ -93,13 +94,13 @@ namespace Final_Project
                 new Rating(2, "Doesn’t fit a full watermelon.", "Xander")
             }, "4 days"));
 
-                        products.Add(new Product("Mystery Snack Box", 29.99m, "Food", new List<Rating> {
+            products.Add(new Product("Mystery Snack Box", 29.99m, "Food", new List<Rating> {
                 new Rating(5, "I love surprises!", "Yara"),
                 new Rating(1, "Got too many raisins.", "Zane")
             }, "3 days"));
 
             products.Add(new Product("Body Pillow with Arms", 49.99m, "Comfort", new List<Rating> {
-                new Rating(5, "Finally, someone to hug me back!", "Alice"),
+                new Rating(5, "Finally someone to hug me back!", "Alice"),
                 new Rating(2, "It’s just a pillow with arms.", "Bob")
             }, "2 days"));
 
@@ -191,7 +192,7 @@ namespace Final_Project
             if (!string.IsNullOrWhiteSpace(searchQuery))
             {
                 filteredProducts = filteredProducts.Where(p => p.Name.ToLower().Contains(searchQuery.ToLower()));
-            } 
+            }
 
             //display all the prodects when filtered
             foreach (var product in filteredProducts)
@@ -254,7 +255,7 @@ namespace Final_Project
             flowLayoutPanel1.Location = new Point(88, 111);
             flowLayoutPanel1.Size = new Size(487, 193);
             //flowLayoutPanel1.Visible = false;
-            
+
             //  flowLayoutPanel1.Invalidate();
 
             if (0 == cart.Count)
@@ -331,6 +332,7 @@ namespace Final_Project
         public Form2()
         {
             InitializeComponent();
+            
 
             //Tommy- created an account button in the top right of home page
             Button accountButton = new Button
@@ -647,6 +649,9 @@ namespace Final_Project
 
             flowLayoutPanel1.Visible = false;
             panel6.BringToFront();
+            
+            Save(Form1.instance.currentUser, cart, Form1.instance.pastPurchases);
+            cart.Clear();
 
         }
 
@@ -725,7 +730,7 @@ namespace Final_Project
         //change password (yuri)
         private void savePasswordButton_Click(object sender, EventArgs e)
         {
-            
+
             bool found = false;
             string filePath = "../../../Data.txt";
 
@@ -742,7 +747,7 @@ namespace Final_Project
                 var parts = entries[i].Split('|');
                 if (parts.Length > 1 && parts[1].Equals(oldPasswordBox.Text) && !found)
                 {
-                    
+
 
                     // Update the password for current user
                     entries[i] = ($"{parts[0]}|{newPasswordBox.Text}|{parts[2]}|{parts[3]}");
@@ -754,109 +759,111 @@ namespace Final_Project
             if (!found) Console.WriteLine("Error"); //if something messed up and no user is found, declare that.
             File.WriteAllLines(filePath, entries);
         }
-    }
-    }
 
-    //Product Class
-    //Created by Dessa
-    public class Product
-    {
-        public string Name { get; set; }
-        public decimal Price { get; set; }
-        public string Category { get; set; }
-        public List<Rating> Ratings { get; set; }
-        public string ShippingTime { get; set; }
-
-        //initalize
-        public Product(string name, decimal price, string category, List<Rating> ratings, string shippingTime)
+        //save data function (yuri)
+        public static void Save(string username, List<Product> cart, List<Product> pastPurchases)
         {
-            Name = name;
-            Price = price;
-            Category = category;
-            Ratings = ratings;
-            ShippingTime = shippingTime;
-        }
-        //Method
-        //Created by Shawn, optimized for saving to Data.txt
-        public override string ToString()
-        {
-                return $"{Name},{Price},{Category},{Ratings},{ShippingTime}";
-        }
+            bool found = false;
+            string filePath = "../../../Data.txt";
 
+            String[] storedCartArray = new String[cart.Count]; //will hold the multiple ToString of products
+            String[] pastPurchaseArray = new String[pastPurchases.Count]; //will hold the multiple ToString of past purchases
 
-    //save data function (yuri)
-    public static void Save(string username, List<Product> cart, List<Product> pastPurchases)
-    {
-        bool found = false;
-        string filePath = "../../../Data.txt";
-
-        String[] storedCartArray = new String[cart.Count]; //will hold the multiple ToString of products
-        String[] pastPurchaseArray = new String[pastPurchases.Count]; //will hold the multiple ToString of past purchases
-
-        // Read all entries into a list
-        var entries = new List<string>();
-        if (File.Exists(filePath))
-        {
-            entries = File.ReadAllLines(filePath).ToList();
-        }
-
-        // Check if the username already exists
-        for (int i = 0; i < entries.Count; i++)
-        {
-            var parts = entries[i].Split('|');
-            if (parts[0].Equals(username) && !found)
+            // Read all entries into a list
+            var entries = new List<string>();
+            if (File.Exists(filePath))
             {
-                //iterate through both list and assign them to arrays to be stored, breaking them into parts
-                //Convert from product to array to string for saving and then reverse when pulling
-                //doesn't account for duplicates yet.
-                foreach (Product item in cart)
-                {
-                    storedCartArray[cart.IndexOf(item)] = (item.ToString());
-                }
-                foreach (Product item in pastPurchases)
-                {
-                    storedCartArray[pastPurchases.IndexOf(item)] = (item.ToString());
-                }
-
-                // Update the data for current user
-                entries[i] = ($"{username}|{parts[1]}|{String.Join(',', pastPurchases)}|{String.Join(',', storedCartArray)}");
-
-                //user, password, pastpurchases separated by commas, cart separated by commas
-                found = true;//stop searching once it is found
-                Console.WriteLine($"Data saved under {username}");
-
-
+                entries = File.ReadAllLines(filePath).ToList();
             }
+
+            // Check if the username already exists
+            for (int i = 0; i < entries.Count; i++)
+            {
+                var parts = entries[i].Split('|');
+                if (parts[0].Equals(username) && !found)
+                {
+                    //iterate through both list and assign them to arrays to be stored, breaking them into parts
+                    //Convert from product to array to string for saving and then reverse when pulling
+                    //doesn't account for duplicates yet.
+                    foreach (Product item in cart)
+                    {
+                        storedCartArray[cart.IndexOf(item)] = (item.ToString());
+                    }
+                    foreach (Product item in pastPurchases)
+                    {
+                        storedCartArray[pastPurchases.IndexOf(item)] = (item.ToString());
+                    }
+
+                    // Update the data for current user
+                    entries[i] = ($"{username}|{parts[1]}|{String.Join(',', pastPurchases)}|{String.Join(',', storedCartArray)}");
+
+                    //user, password, pastpurchases separated by commas, cart separated by commas
+                    found = true;//stop searching once it is found
+                    Console.WriteLine($"Data saved under {username}");
+
+
+                }
+            }
+            if (!found) Console.WriteLine("Error"); //if something messed up and no user is found, declare that.
+            File.WriteAllLines(filePath, entries);
         }
-        if (!found) Console.WriteLine("Error"); //if something messed up and no user is found, declare that.
-        File.WriteAllLines(filePath, entries);
+    }
+
+}
+
+
+
+//Product Class
+//Created by Dessa
+public class Product
+{
+    public string Name { get; set; }
+    public decimal Price { get; set; }
+    public string Category { get; set; }
+    public List<Rating> Ratings { get; set; }
+    public string ShippingTime { get; set; }
+
+    //initalize
+    public Product(string name, decimal price, string category, List<Rating> ratings, string shippingTime)
+    {
+        Name = name;
+        Price = price;
+        Category = category;
+        Ratings = ratings;
+        ShippingTime = shippingTime;
+    }
+    //Method
+    //Created by Shawn, optimized for saving to Data.txt
+    public override string ToString()
+    {
+        return $"{Name},{Price},{Category},{string.Join("~", Ratings)}, {ShippingTime}";
     }
 }
 
-    //Rating Class
-    //Created by Dessa
-    public class Rating
+//Rating Class
+//Created by Dessa
+public class Rating
+{
+    public int Stars { get; private set; }
+    public string Comment { get; private set; }
+    public string Username { get; private set; }
+    public Rating(int stars, string comment, string username)
     {
-        public int Stars { get; private set; }
-        public string Comment { get; private set; }
-        public string Username { get; private set; }
-        public Rating(int stars, string comment, string username)
+        if (stars < 1 || stars > 5)
         {
-            if (stars < 1 || stars > 5)
-            {
-                throw new ArgumentException("Rating must be between 1 and 5");
-            }
+            throw new ArgumentException("Rating must be between 1 and 5");
+        }
 
-            Stars = stars;
-            Comment = comment;
-            Username = username;
-        }
-        //Method
-        //Created by Shawn, optimized for saving to Data.txt
-        public override string ToString()
-        {
-            return $"{Stars},{Comment},{Username}";
-        }
+        Stars = stars;
+        Comment = comment;
+        Username = username;
     }
-    
+    //Method
+    //Created by Shawn, optimized for saving to Data.txt
+    public override string ToString()
+    {
+        return $"{Stars}:{Comment}:{Username}";
+    }
+}
+
 
