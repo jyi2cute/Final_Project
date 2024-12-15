@@ -48,6 +48,112 @@ namespace Final_Project
             products.Add(new Product("Plush Throw Blanket", 19.99m, "Comfort", new List<Rating> {
                 new Rating(3, "Too small for me.", "Hank")
             }, "2 days"));
+
+            products.Add(new Product("Inflatable Couch", 39.99m, "Comfort", new List<Rating> {
+                new Rating(5, "Perfect for surprise naps!", "Ivy"),
+                new Rating(4, "Deflates slowly over time.", "Jack")
+            }, "3 days"));
+
+            products.Add(new Product("Neon Cat Lamp", 24.99m, "Electronics", new List<Rating> {
+                new Rating(5, "Lights up my soul and my desk!", "Karen"),
+                new Rating(2, "Scared my dog at night.", "Larry")
+            }, "1 day"));
+
+            products.Add(new Product("Giant Chocolate Bar", 12.99m, "Food", new List<Rating> {
+                new Rating(5, "Worth every calorie!", "Mallory"),
+                new Rating(4, "Couldn’t finish it in one sitting, so sad.", "Nate")
+            }, "2 days"));
+
+            products.Add(new Product("Weighted Blanket", 59.99m, "Comfort", new List<Rating> {
+                new Rating(5, "Like a hug from the void!", "Olivia"),
+                new Rating(3, "Too heavy to lift off the bed.", "Paul")
+            }, "4 days"));
+
+            products.Add(new Product("Self-Stirring Mug", 19.99m, "Electronics", new List<Rating> {
+                new Rating(4, "Lazy perfection!", "Quinn"),
+                new Rating(3, "Doesn’t stir thick soups. Sad.", "Riley")
+            }, "2 days"));
+
+            products.Add(new Product("Spicy Noodle Challenge Pack", 9.99m, "Food", new List<Rating> {
+                new Rating(5, "Fire in my mouth, fire in my heart!", "Sam"),
+                new Rating(2, "Regret is spicy.", "Taylor")
+            }, "1 day"));
+
+            products.Add(new Product("Unicorn Slippers", 14.99m, "Comfort", new List<Rating> {
+                new Rating(5, "Magical and warm!", "Uma"),
+                new Rating(3, "The horn fell off after a week.", "Victor")
+            }, "3 days"));
+
+            products.Add(new Product("Portable Mini Fridge", 99.99m, "Electronics", new List<Rating> {
+                new Rating(4, "Keeps my soda cold!", "Wendy"),
+                new Rating(2, "Doesn’t fit a full watermelon.", "Xander")
+            }, "4 days"));
+
+                        products.Add(new Product("Mystery Snack Box", 29.99m, "Food", new List<Rating> {
+                new Rating(5, "I love surprises!", "Yara"),
+                new Rating(1, "Got too many raisins.", "Zane")
+            }, "3 days"));
+
+            products.Add(new Product("Body Pillow with Arms", 49.99m, "Comfort", new List<Rating> {
+                new Rating(5, "Finally, someone to hug me back!", "Alice"),
+                new Rating(2, "It’s just a pillow with arms.", "Bob")
+            }, "2 days"));
+
+            products.Add(new Product("Bluetooth Toaster", 69.99m, "Electronics", new List<Rating> {
+                new Rating(5, "Toasts while I snooze!", "Charlie"),
+                new Rating(3, "App crashed while making my toast.", "Dana")
+            }, "5 days"));
+
+            products.Add(new Product("Gourmet Pickle Jar", 8.99m, "Food", new List<Rating> {
+                new Rating(5, "Pickle perfection!", "Eve"),
+                new Rating(4, "Could use more garlic.", "Frank")
+            }, "1 day"));
+
+            products.Add(new Product("Cactus Cushion", 21.99m, "Comfort", new List<Rating> {
+                new Rating(5, "Looks spiky, feels soft!", "Grace"),
+                new Rating(3, "Not as squishy as expected.", "Hank")
+            }, "2 days"));
+
+            products.Add(new Product("Smart Fork", 29.99m, "Electronics", new List<Rating> {
+                new Rating(4, "Tells me when I eat too fast. Genius!", "Ivy"),
+                new Rating(2, "Called me out at dinner. Rude.", "Jack")
+            }, "3 days"));
+
+            products.Add(new Product("Cheese Fountain", 44.99m, "Food", new List<Rating> {
+                new Rating(5, "It’s a dream come true!", "Karen"),
+                new Rating(3, "Cleanup is a nightmare.", "Larry")
+            }, "1 day"));
+
+            products.Add(new Product("Glow-in-the-Dark Socks", 12.99m, "Comfort", new List<Rating> {
+                new Rating(5, "Perfect for midnight snack runs!", "Mallory"),
+                new Rating(3, "They glow too bright for sleeping.", "Nate")
+            }, "2 days"));
+
+            products.Add(new Product("Wi-Fi Enabled Toaster", 89.99m, "Electronics", new List<Rating> {
+                new Rating(4, "It sends me toast notifications!", "Olivia"),
+                new Rating(3, "Too smart for its own good.", "Paul")
+            }, "4 days"));
+
+            products.Add(new Product("Extreme Hot Sauce Set", 29.99m, "Food", new List<Rating> {
+                new Rating(5, "Heat level: apocalypse!", "Quinn"),
+                new Rating(2, "Too hot to handle.", "Riley")
+            }, "1 day"));
+
+            products.Add(new Product("Bean Bag Chair", 49.99m, "Comfort", new List<Rating> {
+                new Rating(5, "Best nap spot ever!", "Sam"),
+                new Rating(3, "Beans spill everywhere.", "Taylor")
+            }, "3 days"));
+
+            products.Add(new Product("Holographic Keyboard", 199.99m, "Electronics", new List<Rating> {
+                new Rating(5, "Feels like the future!", "Uma"),
+                new Rating(4, "Hard to use in bright sunlight.", "Victor")
+            }, "5 days"));
+
+            products.Add(new Product("Instant Ramen Pack", 15.99m, "Food", new List<Rating> {
+                new Rating(5, "Best for late-night cravings!", "Wendy"),
+                new Rating(3, "Too much sodium.", "Xander")
+            }, "2 days"));
+
         }
 
         // Dessa Created function to dispkay the products
