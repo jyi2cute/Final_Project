@@ -246,8 +246,56 @@ namespace Final_Project
 
         private void changePassword_Click(object sender, EventArgs e)
         {
+            Panel changePasswordPanel = new Panel
+            {
+                Location = new Point(0, 0),
+                Size = new Size(400, 200),
+            };
 
+            Label oldPasswordLabel = new Label
+            {
+                Text = "Enter Old Password:",
+                Location = new Point(10, 10),
+                AutoSize = true
+            };
+            TextBox oldPasswordBox = new TextBox
+            {
+                Location = new Point(150, 10),
+                Width = 200
+            };
+
+            Label newPasswordLabel = new Label
+            {
+                Text = "Enter New Password:",
+                Location = new Point(10, 50),
+                AutoSize = true
+            };
+            TextBox newPasswordBox = new TextBox
+            {
+                Location = new Point(150, 50),
+                Width = 200
+            };
+
+            Button savePasswordButton = new Button
+            {
+                Text = "Save Password",
+                Location = new Point(150, 100),
+                Width = 100
+            };
+
+            changePasswordPanel.Controls.Add(oldPasswordLabel);
+            changePasswordPanel.Controls.Add(oldPasswordBox);
+            changePasswordPanel.Controls.Add(newPasswordLabel);
+            changePasswordPanel.Controls.Add(newPasswordBox);
+            changePasswordPanel.Controls.Add(savePasswordButton);
+
+            this.Controls.Add(changePasswordPanel);
+
+            panel7.Visible = false;
+            changePasswordPanel.Visible = true;
+            changePasswordPanel.BringToFront();
         }
+
 
         private void pastPurchases_Click(object sender, EventArgs e)
         {
