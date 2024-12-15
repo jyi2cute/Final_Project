@@ -160,7 +160,7 @@ namespace Final_Project
 
         }
 
-        // Dessa Created function to dispkay the products
+        // Dessa Created function to display the products
         private void DisplayProducts(string category = "All", string searchQuery = "")
         {
             //flowLayoutPanel1.Visible = false;
@@ -247,6 +247,81 @@ namespace Final_Project
             }
         }
 
+        //Shawn's Modified Display Function
+        private void DisplayCart()
+        {
+            flowLayoutPanel1.Controls.Clear();
+            flowLayoutPanel1.Location = new Point(88, 111);
+            flowLayoutPanel1.Size = new Size(487, 193);
+            //flowLayoutPanel1.Visible = false;
+            
+            //  flowLayoutPanel1.Invalidate();
+
+            if (0 == cart.Count)
+            {
+                flowLayoutPanel1.Visible = false; // Hide the flow panel
+                //flowLayoutPanel1.Controls.Clear();
+                //flowLayoutPanel1.Invalidate();
+                return; // Exit the method early
+            }
+
+            flowLayoutPanel1.Visible = true;
+            flowLayoutPanel1.BringToFront();
+
+
+            //display all the prodects when filtered
+            foreach (var product in cart)
+            {
+                var panel = new Panel
+                {
+                    Size = new Size(200, 100),
+                    BorderStyle = BorderStyle.FixedSingle
+                };
+
+                var nameLabel = new Label
+                {
+                    Text = product.Name,
+                    Location = new Point(10, 10),
+                    AutoSize = true
+                };
+
+                var priceLabel = new Label
+                {
+                    Text = $"Price: ${product.Price:F2}",
+                    Location = new Point(10, 30),
+                    AutoSize = true
+                };
+
+                var ratingLabel = new Label
+                {
+                    Text = product.Ratings.Any()
+                    ? $"Rating: {new string('★', (int)product.Ratings.Average(r => r.Stars))}"
+                    : "No ratings yet",
+                    Location = new Point(10, 50),
+                    AutoSize = true
+                };
+
+                var addToCartButton = new Button
+                {
+                    Text = "Add to Cart",
+                    Location = new Point(10, 70),
+                    Size = new Size(100, 25)
+                };
+
+                addToCartButton.Click += (sender, e) =>
+                {
+                    cart.Add(product);
+                    MessageBox.Show($"{product.Name} added to cart!", "Cart Update");
+                };
+
+                panel.Controls.Add(nameLabel);
+                panel.Controls.Add(priceLabel);
+                panel.Controls.Add(ratingLabel);
+                panel.Controls.Add(addToCartButton);
+
+                flowLayoutPanel1.Controls.Add(panel);
+            }
+        }
         public Form2()
         {
             InitializeComponent();
@@ -561,7 +636,8 @@ namespace Final_Project
             panel4.Visible = true;
             panel5.Visible = true;
             panel6.Visible = true;
-         //   panel5.BringToFront();
+            flowLayoutPanel1.Visible = false;
+            panel6.BringToFront();
 
         }
 
@@ -582,6 +658,7 @@ namespace Final_Project
             //flowLayoutPanel1.Size = new Size(487, 193);
             //button4.BringToFront();
             flowLayoutPanel1.Controls.Clear();
+            DisplayCart();
             // panel5.BringToFront();
 
 
@@ -599,6 +676,7 @@ namespace Final_Project
             //flowLayoutPanel1.Location = new Point(88, 111);
             //flowLayoutPanel1.Size = new Size(487, 193);
             flowLayoutPanel1.Controls.Clear();
+            DisplayCart();
             //  panel5.BringToFront();
         }
 
@@ -613,6 +691,7 @@ namespace Final_Project
             //flowLayoutPanel1.Location = new Point(88, 111);
             //flowLayoutPanel1.Size = new Size(487, 193);
             flowLayoutPanel1.Controls.Clear();
+            DisplayCart();
             // panel5.BringToFront();
 
         }
