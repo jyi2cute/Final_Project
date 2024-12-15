@@ -365,9 +365,6 @@ namespace Final_Project
         //Jin - added in checkout page
         private void button4_Click(object sender, EventArgs e)
         {
-            DisplayProducts("None");
-            flowLayoutPanel1.Controls.Clear();
-            flowLayoutPanel1.SendToBack();
             panel1.Visible = false;
             panel2.Visible = true;
             panel3.Visible = true;
