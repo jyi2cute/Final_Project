@@ -49,17 +49,20 @@ namespace Final_Project
         // Dessa Created function to dispkay the products
         private void DisplayProducts(string category = "All", string searchQuery = "")
         {
-            flowLayoutPanel1.Visible = false;
-            flowLayoutPanel1.Controls.Clear();
+            //flowLayoutPanel1.Visible = false;
+            //flowLayoutPanel1.Controls.Clear();
+          //  flowLayoutPanel1.Invalidate();
 
             if (category == "None")
             {
                 flowLayoutPanel1.Visible = false; // Hide the flow panel
+                flowLayoutPanel1.Controls.Clear();
+                flowLayoutPanel1.Invalidate();
                 return; // Exit the method early
             }
 
             flowLayoutPanel1.Visible = true;
-            flowLayoutPanel1.BringToFront();
+            //flowLayoutPanel1.BringToFront();
 
 
             IEnumerable<Product> filteredProducts = products;
@@ -360,12 +363,14 @@ namespace Final_Project
         {
             DisplayProducts("None");
             flowLayoutPanel1.Controls.Clear();
+            flowLayoutPanel1.SendToBack();
             panel1.Visible = false;
             panel2.Visible = true;
             panel3.Visible = true;
             panel4.Visible = true;
             panel5.Visible = true;
             panel6.Visible = true;
+            panel5.BringToFront();
           
         }
 
@@ -379,12 +384,15 @@ namespace Final_Project
         {
             DisplayProducts("None");
             flowLayoutPanel1.Controls.Clear();
+            flowLayoutPanel1.Invalidate();
+            flowLayoutPanel1.SendToBack();
             panel1.Visible = false;
             panel2.Visible = false;
             panel3.Visible = false;
             panel4.Visible = false;
             panel5.Visible = true;
             panel5.BringToFront();
+
 
         }
 
@@ -393,6 +401,8 @@ namespace Final_Project
         {
             DisplayProducts("None");
             flowLayoutPanel1.Controls.Clear();
+            flowLayoutPanel1.Invalidate();
+            flowLayoutPanel1.SendToBack();
             panel1.Visible = false;
             panel2.Visible = false;
             panel3.Visible = false;
@@ -407,6 +417,8 @@ namespace Final_Project
         {
             DisplayProducts("None");
             flowLayoutPanel1.Visible = false;
+            flowLayoutPanel1.Invalidate();
+            flowLayoutPanel1.SendToBack();
             panel1.Visible = false;
             panel2.Visible = false;
             panel3.Visible = false;

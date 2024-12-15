@@ -37,10 +37,11 @@
             panel2 = new Panel();
             panel3 = new Panel();
             panel4 = new Panel();
+            panel5 = new Panel();
             panel6 = new Panel();
+            panel7 = new Panel();
             button5 = new Button();
             label8 = new Label();
-            panel5 = new Panel();
             button4 = new Button();
             label5 = new Label();
             button6 = new Button();
@@ -50,13 +51,12 @@
             button7 = new Button();
             label2 = new Label();
             button8 = new Button();
-            panel7 = new Panel();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
             panel4.SuspendLayout();
-            panel6.SuspendLayout();
             panel5.SuspendLayout();
+            panel6.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -157,10 +157,8 @@
             // 
             // panel4
             // 
-            panel4.Controls.Add(panel6);
             panel4.Controls.Add(panel5);
             panel4.Controls.Add(button6);
-            panel4.Controls.Add(flowLayoutPanel1);
             panel4.Controls.Add(label4);
             panel4.Location = new Point(2, 2);
             panel4.Margin = new Padding(2);
@@ -170,17 +168,37 @@
             panel4.Visible = false;
             panel4.Paint += panel4_Paint;
             // 
+            // panel5
+            // 
+            panel5.Controls.Add(panel6);
+            panel5.Controls.Add(flowLayoutPanel1);
+            panel5.Controls.Add(button4);
+            panel5.Controls.Add(label5);
+            panel5.Location = new Point(29, 14);
+            panel5.Margin = new Padding(2);
+            panel5.Name = "panel5";
+            panel5.Size = new Size(651, 404);
+            panel5.TabIndex = 1;
+            panel5.Paint += panel5_Paint;
+            // 
             // panel6
             // 
             panel6.Controls.Add(panel7);
             panel6.Controls.Add(button5);
             panel6.Controls.Add(label8);
-            panel6.Location = new Point(18, 13);
+            panel6.Location = new Point(9, 4);
             panel6.Margin = new Padding(2);
             panel6.Name = "panel6";
             panel6.Size = new Size(633, 380);
             panel6.TabIndex = 3;
             panel6.Paint += panel6_Paint;
+            // 
+            // panel7
+            // 
+            panel7.Location = new Point(304, 5);
+            panel7.Name = "panel7";
+            panel7.Size = new Size(300, 150);
+            panel7.TabIndex = 2;
             // 
             // button5
             // 
@@ -202,17 +220,6 @@
             label8.Size = new Size(405, 50);
             label8.TabIndex = 0;
             label8.Text = "         Congrats your purchase went through! \r\nEnjoy and thank you for shopping at Sundalandz!";
-            // 
-            // panel5
-            // 
-            panel5.Controls.Add(button4);
-            panel5.Controls.Add(label5);
-            panel5.Location = new Point(18, 2);
-            panel5.Margin = new Padding(2);
-            panel5.Name = "panel5";
-            panel5.Size = new Size(651, 404);
-            panel5.TabIndex = 1;
-            panel5.Paint += panel5_Paint;
             // 
             // button4
             // 
@@ -249,11 +256,12 @@
             // flowLayoutPanel1
             // 
             flowLayoutPanel1.AutoScroll = true;
-            flowLayoutPanel1.Location = new Point(121, 70);
+            flowLayoutPanel1.Location = new Point(165, 56);
             flowLayoutPanel1.Margin = new Padding(2);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
             flowLayoutPanel1.Size = new Size(486, 268);
             flowLayoutPanel1.TabIndex = 0;
+            flowLayoutPanel1.Visible = false;
             // 
             // label4
             // 
@@ -310,18 +318,11 @@
             button8.UseVisualStyleBackColor = true;
             button8.Click += button8_Click;
             // 
-            // panel7
-            // 
-            panel7.Location = new Point(149, 252);
-            panel7.Name = "panel7";
-            panel7.Size = new Size(300, 150);
-            panel7.TabIndex = 2;
-            // 
             // Form2
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(752, 491);
+            ClientSize = new Size(1355, 980);
             Controls.Add(panel2);
             Controls.Add(panel1);
             Margin = new Padding(2);
@@ -335,10 +336,10 @@
             panel3.PerformLayout();
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
-            panel6.ResumeLayout(false);
-            panel6.PerformLayout();
             panel5.ResumeLayout(false);
             panel5.PerformLayout();
+            panel6.ResumeLayout(false);
+            panel6.PerformLayout();
             ResumeLayout(false);
         }
 
