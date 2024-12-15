@@ -33,10 +33,13 @@ namespace Final_Project
             string password = passwordBox.Text;
 
             // Replace this with your actual authentication logic
-            Login(username, password);
+            if (Login(username, password))
+            {
+                // Jin - added in Form 2 to show form 2
+                Form2 form2 = new Form2();
+                form2.Show();
+            }
 
-            // Jin - added in Form 2 to show form 2
-            
         }
 
         private void usernameBox_TextChanged(object sender, EventArgs e)
@@ -44,10 +47,10 @@ namespace Final_Project
 
         }
 
-        private static void Login(string username, string password)
+        private static Boolean Login(string username, string password)
         {
             bool found = false;
-            string filePath = "Data.txt";
+            string filePath = "../../../Data.txt";
 
             try
             {
@@ -68,28 +71,33 @@ namespace Final_Project
                                 var cart = parts[3].Split(',');
                                 MessageBox.Show("Login successful!");
                                 string currentUser = username;
-
+                                return true;
                             }
                         }
                         if (!found)
                         {
                             Console.WriteLine("No login found.");
                             MessageBox.Show("Login unsuccessful!");
+                            return false;
                         }
 
                     }
-                }  
+                }
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Error loading login: {ex.Message}");
             }
+            return false;
         }
 
-        private static void Save(string username, List<int> cart, List<int> pastPurchases)
+        private static void Save(string username, List<Product> cart, List<Product> pastPurchases)
         {
             bool found = false;
-            string filePath = "Data.txt";
+            string filePath = "../../../Data.txt";
+
+            String[] storedCartArray = new String[cart.Count]; //will hold the multiple ToString of products
+
             // Read all entries into a list
             var entries = new List<string>();
             if (File.Exists(filePath))
@@ -103,8 +111,16 @@ namespace Final_Project
                 var parts = entries[i].Split('|');
                 if (parts[0] == username)
                 {
-                    // Update the score for the existing user
-                    entries[i] = ($"{username}|{parts[1]}|{pastPurchases}|{cart}");
+                    //iterate through both list and assign them to arrays to be stored, breaking them into parts
+                    //Convert from product to array to string for saving and then reverse when pulling
+                    //doesn't account for duplicates yet.
+                    foreach (Product item in cart)
+                    {
+                        storedCartArray[cart.IndexOf(item)] = (item.ToString());
+                    }
+
+                    // Update the data for current user
+                    entries[i] = ($"{username}|{parts[1]}|{pastPurchases}|{storedCartArray}");
                     found = true;
                     Console.WriteLine($"Score saved under {username}");
                 }
@@ -113,7 +129,7 @@ namespace Final_Project
         }
         private static void CreateAccount(string username, string password)
         {
-            string filePath = "Data.txt";
+            string filePath = "../../../Data.txt";
             // Read all entries into a list
             var entries = new List<string>();
             entries = File.ReadAllLines(filePath).ToList();
