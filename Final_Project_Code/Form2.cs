@@ -23,6 +23,7 @@ namespace Final_Project
         private TextBox oldPasswordBox;
         private TextBox newPasswordBox;
         private TextBox confirmPasswordBox;
+        private Panel changePasswordPanel;
 
 
         // Dessa Created function 
@@ -355,7 +356,7 @@ namespace Final_Project
 
         private void changePassword_Click(object sender, EventArgs e)
         {
-            Panel changePasswordPanel = new Panel
+            changePasswordPanel = new Panel
             {
                 Location = new Point(0, 0),
                 Size = new Size(400, 200),
@@ -401,7 +402,14 @@ namespace Final_Project
             {
                 Text = "Save Password",
                 Location = new Point(150, 140),
-                Width = 100
+                Width = 150
+            };
+
+            Button homepageButton = new Button
+            {
+                Text = "Back to Homepage",
+                Location = new Point(150, 170),
+                Width = 150
             };
 
             changePasswordPanel.Controls.Add(oldPasswordLabel);
@@ -411,14 +419,22 @@ namespace Final_Project
             changePasswordPanel.Controls.Add(confirmPasswordLabel);
             changePasswordPanel.Controls.Add(confirmPasswordBox);
             changePasswordPanel.Controls.Add(savePasswordButton);
+            changePasswordPanel.Controls.Add(homepageButton);
 
             savePasswordButton.Click += savePasswordButton_Click;
+            homepageButton.Click += homeButton2_Click;
 
             this.Controls.Add(changePasswordPanel);
 
             panel7.Visible = false;
             changePasswordPanel.Visible = true;
             changePasswordPanel.BringToFront();
+        }
+
+        private void homeButton2_Click(Object sender, EventArgs e)
+        {
+            changePasswordPanel.Visible = false;
+            panel1.Visible = true;
         }
 
 
