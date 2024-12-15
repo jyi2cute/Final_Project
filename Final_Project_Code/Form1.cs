@@ -64,10 +64,10 @@ namespace Final_Project
                             {
                                 found = true;
                                 Console.WriteLine($"Found login for {username}: {parts[1]}");
-                                //pastPurchases.Add(parts[2].ToList());
-                                //cart.Add(parts[3].ToList());
+                                var pastPurchases = parts[2].Split(',');
+                                var cart = parts[3].Split(',');
                                 MessageBox.Show("Login successful!");
-                                currentUser = username;
+                                string currentUser = username;
 
                             }
                         }
