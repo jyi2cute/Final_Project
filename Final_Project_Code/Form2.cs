@@ -436,7 +436,7 @@ namespace Final_Project
             panel3.Visible = false;
             panel4.Visible = false;
             panel5.Visible = true;
-        //    panel5.BringToFront();
+         //   panel5.BringToFront();
 
 
         }
