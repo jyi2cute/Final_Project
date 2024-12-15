@@ -144,6 +144,8 @@ namespace Final_Project
             File.WriteAllLines(filePath, entries);
         }
 
+
+
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             panel1.Visible = true;
