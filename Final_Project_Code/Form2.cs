@@ -432,11 +432,12 @@ namespace Final_Project
         private void button6_Click(object sender, EventArgs e)
         {
             panel1.Visible = false;
-            panel2.Visible = false;
-            panel3.Visible = false;
-            panel4.Visible = false;
+            panel2.Visible = true;
+            panel3.Visible = true;
+            panel4.Visible = true;
             panel5.Visible = true;
-        //    panel5.BringToFront();
+            flowLayoutPanel1.Controls.Clear();
+            // panel5.BringToFront();
 
 
         }
@@ -445,23 +446,25 @@ namespace Final_Project
         private void button7_Click(object sender, EventArgs e)
         {
             panel1.Visible = false;
-            panel2.Visible = false;
-            panel3.Visible = false;
-            panel4.Visible = false;
+            panel2.Visible = true;
+            panel3.Visible = true;
+            panel4.Visible = true;
             panel5.Visible = true;
             button4.BringToFront();
-          //  panel5.BringToFront();
+            flowLayoutPanel1.Controls.Clear();
+            //  panel5.BringToFront();
         }
 
         //Jin - added in checkout button for Comfort page
         private void button8_Click(object sender, EventArgs e)
         {
             panel1.Visible = false;
-            panel2.Visible = false;
-            panel3.Visible = false;
-            panel4.Visible = false;
+            panel2.Visible = true;
+            panel3.Visible = true;
+            panel4.Visible = true;
             panel5.Visible = true;
-           // panel5.BringToFront();
+            flowLayoutPanel1.Controls.Clear();
+            // panel5.BringToFront();
 
         }
 
