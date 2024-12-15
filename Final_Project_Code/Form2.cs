@@ -93,7 +93,7 @@ namespace Final_Project
                 new Rating(2, "Doesn’t fit a full watermelon.", "Xander")
             }, "4 days"));
 
-                        products.Add(new Product("Mystery Snack Box", 29.99m, "Food", new List<Rating> {
+            products.Add(new Product("Mystery Snack Box", 29.99m, "Food", new List<Rating> {
                 new Rating(5, "I love surprises!", "Yara"),
                 new Rating(1, "Got too many raisins.", "Zane")
             }, "3 days"));
@@ -191,7 +191,7 @@ namespace Final_Project
             if (!string.IsNullOrWhiteSpace(searchQuery))
             {
                 filteredProducts = filteredProducts.Where(p => p.Name.ToLower().Contains(searchQuery.ToLower()));
-            } 
+            }
 
             //display all the prodects when filtered
             foreach (var product in filteredProducts)
@@ -254,7 +254,7 @@ namespace Final_Project
             flowLayoutPanel1.Location = new Point(88, 111);
             flowLayoutPanel1.Size = new Size(487, 193);
             //flowLayoutPanel1.Visible = false;
-            
+
             //  flowLayoutPanel1.Invalidate();
 
             if (0 == cart.Count)
@@ -725,7 +725,7 @@ namespace Final_Project
         //change password (yuri)
         private void savePasswordButton_Click(object sender, EventArgs e)
         {
-            
+
             bool found = false;
             string filePath = "../../../Data.txt";
 
@@ -742,7 +742,7 @@ namespace Final_Project
                 var parts = entries[i].Split('|');
                 if (parts.Length > 1 && parts[1].Equals(oldPasswordBox.Text) && !found)
                 {
-                    
+
 
                     // Update the password for current user
                     entries[i] = ($"{parts[0]}|{newPasswordBox.Text}|{parts[2]}|{parts[3]}");
@@ -754,8 +754,35 @@ namespace Final_Project
             if (!found) Console.WriteLine("Error"); //if something messed up and no user is found, declare that.
             File.WriteAllLines(filePath, entries);
         }
+
+        //Jin - Back button for home page from Comfort Page
+        private void button9_Click(object sender, EventArgs e)
+        {
+            panel1.Visible = true;
+            panel2.Visible = false;
+            panel3.Visible = false;
+            flowLayoutPanel1.Visible = false;
+        }
+
+        //Jin - Back button for home page from Electronics Page
+        private void button10_Click(object sender, EventArgs e)
+        {
+            panel1.Visible = true;
+            panel2.Visible = false;
+            panel3.Visible = false;
+            flowLayoutPanel1.Visible = false;
+        }
+
+        //Jin - Back button for home page from Food Page
+        private void button11_Click(object sender, EventArgs e)
+        {
+            panel1.Visible = true;
+            panel2.Visible = false;
+            panel3.Visible = false;
+            flowLayoutPanel1.Visible = false;
+        }
     }
-    }
+}
 
     //Product Class
     //Created by Dessa
