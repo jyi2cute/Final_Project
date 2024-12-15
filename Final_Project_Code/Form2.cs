@@ -259,7 +259,13 @@ namespace Final_Project
 
             if (0 == cart.Count)
             {
-                flowLayoutPanel1.Visible = false; // Hide the flow panel
+                var emptyMessageLabel = new Label
+                {
+                    Text = "Your cart is empty.",
+                    Location = new Point(10, 10),
+                    AutoSize = true
+                };
+                flowLayoutPanel1.Controls.Add(emptyMessageLabel);
                 //flowLayoutPanel1.Controls.Clear();
                 //flowLayoutPanel1.Invalidate();
                 return; // Exit the method early
@@ -636,6 +642,9 @@ namespace Final_Project
             panel4.Visible = true;
             panel5.Visible = true;
             panel6.Visible = true;
+            panel7.Visible = false;
+            button4.Visible = false;
+
             flowLayoutPanel1.Visible = false;
             panel6.BringToFront();
 
