@@ -30,11 +30,11 @@
         {
             panel1 = new Panel();
             button3 = new Button();
-            flowLayoutPanel1 = new FlowLayoutPanel();
             button2 = new Button();
             button1 = new Button();
             textBox1 = new TextBox();
             label1 = new Label();
+            flowLayoutPanel1 = new FlowLayoutPanel();
             panel2 = new Panel();
             panel3 = new Panel();
             panel4 = new Panel();
@@ -85,17 +85,6 @@
             button3.UseVisualStyleBackColor = true;
             button3.Click += button3_Click;
             // 
-            // flowLayoutPanel1
-            // 
-            flowLayoutPanel1.AutoScroll = true;
-            flowLayoutPanel1.Location = new Point(15, 63);
-            flowLayoutPanel1.Margin = new Padding(2);
-            flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(486, 268);
-            flowLayoutPanel1.TabIndex = 0;
-            flowLayoutPanel1.Visible = false;
-            flowLayoutPanel1.Paint += flowLayoutPanel1_Paint;
-            // 
             // button2
             // 
             button2.Location = new Point(304, 251);
@@ -141,6 +130,17 @@
             label1.TextAlign = ContentAlignment.MiddleRight;
             label1.Click += label1_Click;
             // 
+            // flowLayoutPanel1
+            // 
+            flowLayoutPanel1.AutoScroll = true;
+            flowLayoutPanel1.Location = new Point(11, 139);
+            flowLayoutPanel1.Margin = new Padding(2);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Size = new Size(486, 268);
+            flowLayoutPanel1.TabIndex = 0;
+            flowLayoutPanel1.Visible = false;
+            flowLayoutPanel1.Paint += flowLayoutPanel1_Paint;
+            // 
             // panel2
             // 
             panel2.Controls.Add(panel3);
@@ -184,7 +184,7 @@
             panel5.Controls.Add(panel6);
             panel5.Controls.Add(button4);
             panel5.Controls.Add(label5);
-            panel5.Location = new Point(24, 18);
+            panel5.Location = new Point(14, 13);
             panel5.Margin = new Padding(2);
             panel5.Name = "panel5";
             panel5.Size = new Size(661, 411);
@@ -196,7 +196,7 @@
             panel6.Controls.Add(panel7);
             panel6.Controls.Add(button5);
             panel6.Controls.Add(label8);
-            panel6.Location = new Point(21, 22);
+            panel6.Location = new Point(20, 26);
             panel6.Margin = new Padding(2);
             panel6.Name = "panel6";
             panel6.Size = new Size(621, 350);

@@ -410,7 +410,7 @@ namespace Final_Project
 
         }
 
-        //Jin - added in checkout page
+        //Jin - added in checkout button at shopping cart page, takes it to the last page = panel 6
         private void button4_Click(object sender, EventArgs e)
         {
             panel1.Visible = false;
