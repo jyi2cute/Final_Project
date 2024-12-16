@@ -112,7 +112,7 @@ namespace Final_Project
                                         Form1.instance.pastPurchases.Add(tempPurchase);
                                     }
                                 }
-                                
+
                                 var cart = parts[3].Split(',');
                                 MessageBox.Show("Login successful!");
                                 string currentUser = username;
@@ -167,6 +167,12 @@ namespace Final_Project
             CreateAccount(username, password);
             Form2 form2 = new Form2();
             form2.Show();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            panel2.Visible = false;
+            panel1.Visible = true;
         }
     }
 }
