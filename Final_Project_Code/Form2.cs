@@ -823,7 +823,7 @@ namespace Final_Project
                     }
                     foreach (Product item in pastPurchases)
                     {
-                        storedCartArray[pastPurchases.IndexOf(item)] = (item.ToString());
+                        pastPurchaseArray[pastPurchases.IndexOf(item)] = (item.ToString());
                     }
 
                     // Update the data for current user
