@@ -316,12 +316,14 @@ namespace Final_Project
                     Text = "Remove",
                     Location = new Point(10, 70),
                     Size = new Size(100, 25)
+
                 };
 
                 removeCartButton.Click += (sender, e) =>
                 {
                     cart.Remove(product);
                     MessageBox.Show($"{product.Name} Removed from cart!", "Cart Update");
+                    DisplayCart();
                 };
 
                 panel.Controls.Add(nameLabel);
