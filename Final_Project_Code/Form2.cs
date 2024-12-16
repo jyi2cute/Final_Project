@@ -311,23 +311,23 @@ namespace Final_Project
                     AutoSize = true
                 };
 
-                var addToCartButton = new Button
+                var removeCartButton = new Button
                 {
-                    Text = "Add to Cart",
+                    Text = "Remove",
                     Location = new Point(10, 70),
                     Size = new Size(100, 25)
                 };
 
-                addToCartButton.Click += (sender, e) =>
+                removeCartButton.Click += (sender, e) =>
                 {
-                    cart.Add(product);
-                    MessageBox.Show($"{product.Name} added to cart!", "Cart Update");
+                    cart.Remove(product);
+                    MessageBox.Show($"{product.Name} Removed from cart!", "Cart Update");
                 };
 
                 panel.Controls.Add(nameLabel);
                 panel.Controls.Add(priceLabel);
                 panel.Controls.Add(ratingLabel);
-                panel.Controls.Add(addToCartButton);
+                panel.Controls.Add(removeCartButton);
 
                 flowLayoutPanel1.Controls.Add(panel);
             }
@@ -916,30 +916,30 @@ namespace Final_Project
                 File.WriteAllLines(filePath, entries);
             }
 
-            private void button12_Click(object sender, EventArgs e)
-            {
-                // Hide all panels except panel1
-                panel1.Visible = true;
-                panel2.Visible = false;
-                panel3.Visible = false;
-                panel4.Visible = false;
-                panel5.Visible = false;
-                panel6.Visible = false;
-                panel7.Visible = false;
-
-                // Ensure flowLayoutPanel1 is also hidden
-                flowLayoutPanel1.Visible = false;
-            }
-        }
-        //Product Class
-        //Created by Dessa
-        public class Product
+        private void button12_Click(object sender, EventArgs e)
         {
-            public string Name { get; set; }
-            public decimal Price { get; set; }
-            public string Category { get; set; }
-            public List<Rating> Ratings { get; set; }
-            public string ShippingTime { get; set; }
+            // Hide all panels except panel1
+            panel1.Visible = true;
+            panel2.Visible = false;
+            panel3.Visible = false;
+            panel4.Visible = false;
+            panel5.Visible = false;
+            panel6.Visible = false;
+            panel7.Visible = false;
+
+            // Ensure flowLayoutPanel1 is also hidden
+            flowLayoutPanel1.Visible = false;
+        }
+    }
+    //Product Class
+    //Created by Dessa
+    public class Product
+    {
+        public string Name { get; set; }
+        public decimal Price { get; set; }
+        public string Category { get; set; }
+        public List<Rating> Ratings { get; set; }
+        public string ShippingTime { get; set; }
 
             //initalize
             public Product(string name, decimal price, string category, List<Rating> ratings, string shippingTime)
