@@ -54,7 +54,6 @@
             label2 = new Label();
             button8 = new Button();
             button9 = new Button();
-            panel8 = new Panel();
             button13 = new Button();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
@@ -62,7 +61,6 @@
             panel4.SuspendLayout();
             panel5.SuspendLayout();
             panel6.SuspendLayout();
-            panel8.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -201,7 +199,6 @@
             // 
             // panel6
             // 
-            panel6.Controls.Add(panel8);
             panel6.Controls.Add(panel7);
             panel6.Controls.Add(button5);
             panel6.Controls.Add(label8);
@@ -361,7 +358,6 @@
             button9.UseVisualStyleBackColor = true;
             button9.Click += button9_Click;
             // 
-            // 
             // button13
             // 
             button13.Location = new Point(32, 24);
@@ -370,7 +366,6 @@
             button13.TabIndex = 0;
             button13.Text = "Back";
             button13.UseVisualStyleBackColor = true;
-
             // 
             // Form2
             // 
@@ -395,7 +390,6 @@
             panel5.PerformLayout();
             panel6.ResumeLayout(false);
             panel6.PerformLayout();
-            panel8.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -426,7 +420,6 @@
         private Button button10;
         private Button button11;
         private Button button12;
-        private Panel panel8;
         private Button button13;
     }
 }
