@@ -334,7 +334,7 @@ namespace Final_Project
         public Form2()
         {
             InitializeComponent();
-            
+
 
             //Tommy- created an account button in the top right of home page
             Button accountButton = new Button
@@ -651,7 +651,7 @@ namespace Final_Project
 
             flowLayoutPanel1.Visible = false;
             panel6.BringToFront();
-            
+
             Save(Form1.instance.currentUser, cart, Form1.instance.pastPurchases);
             cart.Clear();
 
@@ -789,8 +789,8 @@ namespace Final_Project
             panel3.Visible = false;
             flowLayoutPanel1.Visible = false;
         }
-    }
-}
+
+
 
         //save data function (yuri)
         public static void Save(string username, List<Product> cart, List<Product> pastPurchases)
@@ -839,62 +839,59 @@ namespace Final_Project
             if (!found) Console.WriteLine("Error"); //if something messed up and no user is found, declare that.
             File.WriteAllLines(filePath, entries);
         }
+
     }
-
-}
-
-
-
-//Product Class
-//Created by Dessa
-public class Product
-{
-    public string Name { get; set; }
-    public decimal Price { get; set; }
-    public string Category { get; set; }
-    public List<Rating> Ratings { get; set; }
-    public string ShippingTime { get; set; }
-
-    //initalize
-    public Product(string name, decimal price, string category, List<Rating> ratings, string shippingTime)
+    //Product Class
+    //Created by Dessa
+    public class Product
     {
-        Name = name;
-        Price = price;
-        Category = category;
-        Ratings = ratings;
-        ShippingTime = shippingTime;
-    }
-    //Method
-    //Created by Shawn, optimized for saving to Data.txt
-    public override string ToString()
-    {
-        return $"{Name},{Price},{Category},{string.Join("~", Ratings)}, {ShippingTime}";
-    }
-}
+        public string Name { get; set; }
+        public decimal Price { get; set; }
+        public string Category { get; set; }
+        public List<Rating> Ratings { get; set; }
+        public string ShippingTime { get; set; }
 
-//Rating Class
-//Created by Dessa
-public class Rating
-{
-    public int Stars { get; private set; }
-    public string Comment { get; private set; }
-    public string Username { get; private set; }
-    public Rating(int stars, string comment, string username)
-    {
-        if (stars < 1 || stars > 5)
+        //initalize
+        public Product(string name, decimal price, string category, List<Rating> ratings, string shippingTime)
         {
-            throw new ArgumentException("Rating must be between 1 and 5");
+            Name = name;
+            Price = price;
+            Category = category;
+            Ratings = ratings;
+            ShippingTime = shippingTime;
         }
-
-        Stars = stars;
-        Comment = comment;
-        Username = username;
+        //Method
+        //Created by Shawn, optimized for saving to Data.txt
+        public override string ToString()
+        {
+            return $"{Name},{Price},{Category},{string.Join("~", Ratings)}, {ShippingTime}";
+        }
     }
-    //Method
-    //Created by Shawn, optimized for saving to Data.txt
-    public override string ToString()
+
+    //Rating Class
+    //Created by Dessa
+    public class Rating
     {
-        return $"{Stars}:{Comment}:{Username}";
+        public int Stars { get; private set; }
+        public string Comment { get; private set; }
+        public string Username { get; private set; }
+        public Rating(int stars, string comment, string username)
+        {
+            if (stars < 1 || stars > 5)
+            {
+                throw new ArgumentException("Rating must be between 1 and 5");
+            }
+
+            Stars = stars;
+            Comment = comment;
+            Username = username;
+        }
+        //Method
+        //Created by Shawn, optimized for saving to Data.txt
+        public override string ToString()
+        {
+            return $"{Stars}:{Comment}:{Username}";
+        }
     }
 }
 
