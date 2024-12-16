@@ -840,6 +840,20 @@ namespace Final_Project
             File.WriteAllLines(filePath, entries);
         }
 
+        private void button12_Click(object sender, EventArgs e)
+        {
+            // Hide all panels except panel1
+            panel1.Visible = true;
+            panel2.Visible = false;
+            panel3.Visible = false;
+            panel4.Visible = false;
+            panel5.Visible = false;
+            panel6.Visible = false;
+            panel7.Visible = false;
+
+            // Ensure flowLayoutPanel1 is also hidden
+            flowLayoutPanel1.Visible = false;
+        }
     }
     //Product Class
     //Created by Dessa
