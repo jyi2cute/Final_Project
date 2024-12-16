@@ -361,14 +361,6 @@
             button9.UseVisualStyleBackColor = true;
             button9.Click += button9_Click;
             // 
-            // panel8
-            // 
-            panel8.Controls.Add(button13);
-            panel8.Location = new Point(53, 40);
-            panel8.Name = "panel8";
-            panel8.Size = new Size(513, 248);
-            panel8.TabIndex = 3;
-            panel8.Paint += panel8_Paint;
             // 
             // button13
             // 
@@ -378,7 +370,7 @@
             button13.TabIndex = 0;
             button13.Text = "Back";
             button13.UseVisualStyleBackColor = true;
-            button13.Click += button13_Click;
+
             // 
             // Form2
             // 
