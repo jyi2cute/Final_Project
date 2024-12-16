@@ -332,212 +332,15 @@ namespace Final_Project
                 flowLayoutPanel1.Controls.Add(panel);
             }
         }
-
-
-
-        public Form2()
+        private void DisplayPastP()
         {
-            InitializeComponent();
-
-
-            //Tommy- created an account button in the top right of home page
-            Button accountButton = new Button
-            {
-                Text = "Account",
-                Location = new Point(400, 5),
-                Size = new Size(100, 25)
-            };
-
-            //add click event to button
-            accountButton.Click += accountButton_Click;
-
-
-
-            //Jin - added in home page
-            panel1.Visible = true;
-            panel1.Controls.Add(accountButton);
-            panel2.Visible = false;
-            panel3.Visible = false;
-            panel4.Visible = false;
-            panel5.Visible = false;
-            panel6.Visible = false;
-            //flowLayoutPanel1.Visible = false;
-
-            InitializeStore();
-
-            //created panel7 (account panel)
-            panel7 = new Panel
-            {
-                Location = new Point(0, 0),
-                Size = new Size(800, 600),
-                Visible = false // Initially hidden
-            };
-
-            Button homeButton = new Button
-            {
-                Text = "Go to Homepage",
-                Location = new Point(225, 170),
-                Size = new Size(100, 50)
-            };
-
-            Button changePassword = new Button
-            {
-                Text = "Change Password",
-                Location = new Point(225, 30),
-                Size = new Size(100, 40)
-            };
-
-            Button pastPurchases = new Button
-            {
-                Text = "See Past Purchases",
-                Location = new Point(225, 80),
-                Size = new Size(100, 40)
-            };
-
-            Button logout = new Button
-            {
-                Text = "Log Out",
-                Location = new Point(225, 130),
-                Size = new Size(100, 25)
-            };
-
-            //add click event to back button
-            homeButton.Click += homeButton_Click;
-
-            //add click event to change password button
-            changePassword.Click += changePassword_Click;
-
-            //add click event to past purchases button
-            pastPurchases.Click += pastPurchases_Click;
-
-            //add click event to log out button
-            logout.Click += logout_Click;
-
-            //add homeButton to panel 7
-            panel7.Controls.Add(homeButton);
-            panel7.Controls.Add(changePassword);
-            panel7.Controls.Add(pastPurchases);
-            panel7.Controls.Add(logout);
-
-            this.Controls.Add(panel7);
-
-        }
-
-
-        private void accountButton_Click(object sender, EventArgs e)
-        {
-            // Hide other panels and show Panel 7
-            panel1.Visible = false;
-            panel2.Visible = false;
-            panel3.Visible = false;
-            panel4.Visible = false;
-            panel5.Visible = false;
-            panel6.Visible = false;
-            panel7.Visible = true;
-            panel7.BringToFront(); // Ensure Panel 7 is displayed on top
-        }
-
-        private void homeButton_Click(Object sender, EventArgs e)
-        {
-            panel7.Visible = false;
-            panel1.Visible = true;
-        }
-
-        private void changePassword_Click(object sender, EventArgs e)
-        {
-            changePasswordPanel = new Panel
-            {
-                Location = new Point(0, 0),
-                Size = new Size(400, 200),
-            };
-
-            Label oldPasswordLabel = new Label
-            {
-                Text = "Enter Old Password:",
-                Location = new Point(10, 10),
-                AutoSize = true
-            };
-            oldPasswordBox = new TextBox
-            {
-                Location = new Point(150, 10),
-                Width = 200
-            };
-
-            Label newPasswordLabel = new Label
-            {
-                Text = "Enter New Password:",
-                Location = new Point(10, 50),
-                AutoSize = true
-            };
-            newPasswordBox = new TextBox
-            {
-                Location = new Point(150, 50),
-                Width = 200
-            };
-
-            Label confirmPasswordLabel = new Label
-            {
-                Text = "Confirm New Password:",
-                Location = new Point(10, 90),
-                AutoSize = true
-            };
-            confirmPasswordBox = new TextBox
-            {
-                Location = new Point(150, 90),
-                Width = 200
-            };
-
-            Button savePasswordButton = new Button
-            {
-                Text = "Save Password",
-                Location = new Point(150, 140),
-                Width = 150
-            };
-
-            Button homepageButton = new Button
-            {
-                Text = "Back to Homepage",
-                Location = new Point(150, 170),
-                Width = 150
-            };
-
-            changePasswordPanel.Controls.Add(oldPasswordLabel);
-            changePasswordPanel.Controls.Add(oldPasswordBox);
-            changePasswordPanel.Controls.Add(newPasswordLabel);
-            changePasswordPanel.Controls.Add(newPasswordBox);
-            changePasswordPanel.Controls.Add(confirmPasswordLabel);
-            changePasswordPanel.Controls.Add(confirmPasswordBox);
-            changePasswordPanel.Controls.Add(savePasswordButton);
-            changePasswordPanel.Controls.Add(homepageButton);
-
-            savePasswordButton.Click += savePasswordButton_Click;
-            homepageButton.Click += homeButton2_Click;
-
-            this.Controls.Add(changePasswordPanel);
-
-            panel7.Visible = false;
-            changePasswordPanel.Visible = true;
-            changePasswordPanel.BringToFront();
-        }
-
-        private void homeButton2_Click(Object sender, EventArgs e)
-        {
-            changePasswordPanel.Visible = false;
-            panel1.Visible = true;
-        }
-
-
-        private void pastPurchases_Click(object sender, EventArgs e)
-        {
-            flowLayoutPanel1.Visible = true;
-            flowLayoutPanel1.BringToFront();
             flowLayoutPanel1.Controls.Clear();
-            flowLayoutPanel1.Location = new Point(88, 111);
-            flowLayoutPanel1.Size = new Size(487, 193);
+            flowLayoutPanel1.Location = new Point(320, 50);
+            flowLayoutPanel1.Size = new Size(210, 380);
             //flowLayoutPanel1.Visible = false;
 
             //  flowLayoutPanel1.Invalidate();
-            if (Form1.instance.pastPurchases.Count == 3)
+            if (Form1.instance.pastPurchases.Count == 0)
             {
                 var emptyMessageLabel = new Label
                 {
@@ -567,7 +370,7 @@ namespace Final_Project
                 var nameLabel = new Label
                 {
                     Text = product.Name,
-                    Location = new Point(10, 10),
+                    Location = new Point(1, 10),
                     AutoSize = true
                 };
 
@@ -586,396 +389,600 @@ namespace Final_Project
                     Location = new Point(10, 50),
                     AutoSize = true
                 };
+                panel.Controls.Add(nameLabel);
+                panel.Controls.Add(priceLabel);
+                panel.Controls.Add(ratingLabel);
+                
 
                 flowLayoutPanel1.Controls.Add(panel);
             }
         }
 
-        private void logout_Click(object sender, EventArgs e)
-        {
-            //Close Form2
-            this.Close();
-        }
 
-        //options page
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        //Jin - added in comfort page
-        private void button1_Click(object sender, EventArgs e)
-        {
-            panel1.Visible = false;
-            panel3.Visible = false;
-            panel2.Visible = true;
-            flowLayoutPanel1.Visible = true;
-
-            //Dessa added display
-            DisplayProducts("Comfort");
-
-
-        }
-
-        //Jin - added in Electronics page
-        private void button2_Click(object sender, EventArgs e)
-        {
-            panel1.Visible = false;
-            panel2.Visible = true;
-            panel3.Visible = true;
-            //Dessa added display
-            DisplayProducts("Electronics");
-
-        }
-
-        //Jin - added in Food Page
-        private void button3_Click(object sender, EventArgs e)
-        {
-            panel1.Visible = false;
-            panel2.Visible = true;
-            panel3.Visible = true;
-            panel4.Visible = true;
-            //Dessa added display
-            DisplayProducts("Food");
-
-        }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel3_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel4_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel5_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void splitContainer1_Panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        //Jin - added in checkout button at shopping cart page, takes it to the last page = panel 6
-        private void button4_Click(object sender, EventArgs e)
-        {
-            panel1.Visible = false;
-            panel2.Visible = true;
-            panel3.Visible = true;
-            panel4.Visible = true;
-            panel5.Visible = true;
-            panel6.Visible = true;
-            panel7.Visible = false;
-            button4.Visible = false;
-
-            flowLayoutPanel1.Visible = false;
-            panel6.BringToFront();
-            //Clear Cart and add to pastPurchases, then save in file
-            foreach(Product item in cart)
+            public Form2()
             {
-                Form1.instance.pastPurchases.Add(item);
-            }
-            cart.Clear();
-            Save(Form1.instance.currentUser, cart, Form1.instance.pastPurchases);
-           
-            
-
-        }
-
-        private void panel6_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        //Jin - added in checkout button for food section page
-        private void button6_Click(object sender, EventArgs e)
-        {
-            panel1.Visible = false;
-            panel2.Visible = true;
-            panel3.Visible = true;
-            panel4.Visible = true;
-            panel5.Visible = true;
-            button10.Visible = true;
-            //flowLayoutPanel1.Location = new Point(88, 111);
-            //flowLayoutPanel1.Size = new Size(487, 193);
-            //button4.BringToFront();
-            flowLayoutPanel1.Controls.Clear();
-            DisplayCart();
-            // panel5.BringToFront();
+                InitializeComponent();
 
 
-        }
-
-        //Jin - added in checkout button for Electronics page
-        private void button7_Click(object sender, EventArgs e)
-        {
-            panel1.Visible = false;
-            panel2.Visible = true;
-            panel3.Visible = true;
-            panel4.Visible = true;
-            panel5.Visible = true;
-            button4.BringToFront();
-            //flowLayoutPanel1.Location = new Point(88, 111);
-            //flowLayoutPanel1.Size = new Size(487, 193);
-            flowLayoutPanel1.Controls.Clear();
-            DisplayCart();
-            //  panel5.BringToFront();
-        }
-
-        //Jin - added in checkout button for Comfort page
-        private void button8_Click(object sender, EventArgs e)
-        {
-            panel1.Visible = false;
-            panel2.Visible = true;
-            panel3.Visible = true;
-            panel4.Visible = true;
-            panel5.Visible = true;
-            //flowLayoutPanel1.Location = new Point(88, 111);
-            //flowLayoutPanel1.Size = new Size(487, 193);
-            flowLayoutPanel1.Controls.Clear();
-            DisplayCart();
-            // panel5.BringToFront();
-
-        }
-
-        //add in back to home page at the end      
-        private void button5_Click_1(object sender, EventArgs e)
-        {
-            flowLayoutPanel1.Visible = false;
-            panel1.Visible = true;
-            panel2.Visible = false;
-            panel3.Visible = false;
-            panel4.Visible = false;
-            panel5.Visible = false;
-            panel6.Visible = false;
-        }
-
-        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        //change password (yuri)
-        private void savePasswordButton_Click(object sender, EventArgs e)
-        {
-
-            bool found = false;
-            string filePath = "../../../Data.txt";
-
-            // Read all entries into a list
-            var entries = new List<string>();
-            if (File.Exists(filePath))
-            {
-                entries = File.ReadAllLines(filePath).ToList();
-            }
-
-            // Check if the username already exists
-            for (int i = 0; i < entries.Count; i++)
-            {
-                var parts = entries[i].Split('|');
-                if (parts.Length > 1 && parts[1].Equals(oldPasswordBox.Text) && !found)
+                //Tommy- created an account button in the top right of home page
+                Button accountButton = new Button
                 {
+                    Text = "Account",
+                    Location = new Point(400, 5),
+                    Size = new Size(100, 25)
+                };
 
-
-                    // Update the password for current user
-                    entries[i] = ($"{parts[0]}|{newPasswordBox.Text}|{parts[2]}|{parts[3]}");
-                    //user, password, pastpurchases separated by commas, cart separated by commas
-                    found = true;//stop searching once it is found
-                    Console.WriteLine($"Data saved under {parts[0]}");
-                }
-            }
-            if (!found) Console.WriteLine("Error"); //if something messed up and no user is found, declare that.
-            File.WriteAllLines(filePath, entries);
-        }
-
-        //Jin - Back button for home page from Comfort Page
-        private void button9_Click(object sender, EventArgs e)
-        {
-            panel1.Visible = true;
-            panel2.Visible = false;
-            panel3.Visible = false;
-            flowLayoutPanel1.Visible = false;
-        }
-
-        //Jin - Back button for home page from Electronics Page
-        private void button10_Click(object sender, EventArgs e)
-        {
-            panel1.Visible = true;
-            panel2.Visible = false;
-            panel3.Visible = false;
-            flowLayoutPanel1.Visible = false;
-        }
-
-        //Jin - Back button for home page from Food Page
-        private void button11_Click(object sender, EventArgs e)
-        {
-            panel1.Visible = true;
-            panel2.Visible = false;
-            panel3.Visible = false;
-            flowLayoutPanel1.Visible = false;
-        }
+                //add click event to button
+                accountButton.Click += accountButton_Click;
 
 
 
-        //save data function (yuri)
-        public static void Save(string username, List<Product> cart, List<Product> pastPurchases)
-        {
-            bool found = false;
-            string filePath = "../../../Data.txt";
+                //Jin - added in home page
+                panel1.Visible = true;
+                panel1.Controls.Add(accountButton);
+                panel2.Visible = false;
+                panel3.Visible = false;
+                panel4.Visible = false;
+                panel5.Visible = false;
+                panel6.Visible = false;
+                //flowLayoutPanel1.Visible = false;
 
-            String[] storedCartArray = new String[cart.Count]; //will hold the multiple ToString of products
-            String[] pastPurchaseArray = new String[pastPurchases.Count]; //will hold the multiple ToString of past purchases
+                InitializeStore();
 
-            // Read all entries into a list
-            var entries = new List<string>();
-            if (File.Exists(filePath))
-            {
-                entries = File.ReadAllLines(filePath).ToList();
-            }
-
-            // Check if the username already exists
-            for (int i = 0; i < entries.Count; i++)
-            {
-                var parts = entries[i].Split('|');
-                if (parts[0].Equals(username) && !found)
+                //created panel7 (account panel)
+                panel7 = new Panel
                 {
-                    //iterate through both list and assign them to arrays to be stored, breaking them into parts
-                    //Convert from product to array to string for saving and then reverse when pulling
-                    //doesn't account for duplicates yet.
-                    foreach (Product item in cart)
-                    {
-                        storedCartArray[cart.IndexOf(item)] = (item.ToString());
-                    }
-                    foreach (Product item in pastPurchases)
-                    {
-                        pastPurchaseArray[pastPurchases.IndexOf(item)] = (item.ToString());
-                    }
+                    Location = new Point(0, 0),
+                    Size = new Size(800, 600),
+                    Visible = false // Initially hidden
+                };
 
-                    // Update the data for current user
-                    entries[i] = ($"{username}|{parts[1]}|{String.Join(',', pastPurchases)}|{String.Join(',', storedCartArray)}");
+                Button homeButton = new Button
+                {
+                    Text = "Go to Homepage",
+                    Location = new Point(155, 170),
+                    Size = new Size(100, 50)
+                };
 
-                    //user, password, pastpurchases separated by commas, cart separated by commas
-                    found = true;//stop searching once it is found
-                    Console.WriteLine($"Data saved under {username}");
+                Button changePassword = new Button
+                {
+                    Text = "Change Password",
+                    Location = new Point(155, 30),
+                    Size = new Size(100, 40)
+                };
 
+                Button pastPurchases = new Button
+                {
+                    Text = "See Past Purchases",
+                    Location = new Point(155, 80),
+                    Size = new Size(100, 40)
+                };
 
-                }
+                Button logout = new Button
+                {
+                    Text = "Log Out",
+                    Location = new Point(155, 130),
+                    Size = new Size(100, 25)
+                };
+
+                //add click event to back button
+                homeButton.Click += homeButton_Click;
+
+                //add click event to change password button
+                changePassword.Click += changePassword_Click;
+
+                //add click event to past purchases button
+                pastPurchases.Click += pastPurchases_Click;
+
+                //add click event to log out button
+                logout.Click += logout_Click;
+
+                //add homeButton to panel 7
+                panel7.Controls.Add(homeButton);
+                panel7.Controls.Add(changePassword);
+                panel7.Controls.Add(pastPurchases);
+                panel7.Controls.Add(logout);
+
+                this.Controls.Add(panel7);
+
             }
-            if (!found) Console.WriteLine("Error"); //if something messed up and no user is found, declare that.
-            File.WriteAllLines(filePath, entries);
-        }
 
-        private void button12_Click(object sender, EventArgs e)
-        {
-            // Hide all panels except panel1
-            panel1.Visible = true;
-            panel2.Visible = false;
-            panel3.Visible = false;
-            panel4.Visible = false;
-            panel5.Visible = false;
-            panel6.Visible = false;
-            panel7.Visible = false;
 
-            // Ensure flowLayoutPanel1 is also hidden
-            flowLayoutPanel1.Visible = false;
-        }
-    }
-    //Product Class
-    //Created by Dessa
-    public class Product
-    {
-        public string Name { get; set; }
-        public decimal Price { get; set; }
-        public string Category { get; set; }
-        public List<Rating> Ratings { get; set; }
-        public string ShippingTime { get; set; }
-
-        //initalize
-        public Product(string name, decimal price, string category, List<Rating> ratings, string shippingTime)
-        {
-            Name = name;
-            Price = price;
-            Category = category;
-            Ratings = ratings;
-            ShippingTime = shippingTime;
-        }
-        //Method
-        //Created by Shawn, optimized for saving to Data.txt
-        public override string ToString()
-        {
-            return $"{Name},{Price},{Category},{string.Join("~", Ratings)}, {ShippingTime}";
-        }
-    }
-
-    //Rating Class
-    //Created by Dessa
-    public class Rating
-    {
-        public int Stars { get; private set; }
-        public string Comment { get; private set; }
-        public string Username { get; private set; }
-        public Rating(int stars, string comment, string username)
-        {
-            if (stars < 1 || stars > 5)
+            private void accountButton_Click(object sender, EventArgs e)
             {
-                throw new ArgumentException("Rating must be between 1 and 5");
+                // Hide other panels and show Panel 7
+                panel1.Visible = false;
+                panel2.Visible = false;
+                panel3.Visible = false;
+                panel4.Visible = false;
+                panel5.Visible = false;
+                panel6.Visible = false;
+                panel7.Visible = true;
+                panel7.BringToFront(); // Ensure Panel 7 is displayed on top
             }
 
-            Stars = stars;
-            Comment = comment;
-            Username = username;
+            private void homeButton_Click(Object sender, EventArgs e)
+            {
+                panel7.Visible = false;
+                panel1.Visible = true;
+            }
+
+            private void changePassword_Click(object sender, EventArgs e)
+            {
+                changePasswordPanel = new Panel
+                {
+                    Location = new Point(0, 0),
+                    Size = new Size(400, 200),
+                };
+
+                Label oldPasswordLabel = new Label
+                {
+                    Text = "Enter Old Password:",
+                    Location = new Point(10, 10),
+                    AutoSize = true
+                };
+                oldPasswordBox = new TextBox
+                {
+                    Location = new Point(150, 10),
+                    Width = 200
+                };
+
+                Label newPasswordLabel = new Label
+                {
+                    Text = "Enter New Password:",
+                    Location = new Point(10, 50),
+                    AutoSize = true
+                };
+                newPasswordBox = new TextBox
+                {
+                    Location = new Point(150, 50),
+                    Width = 200
+                };
+
+                Label confirmPasswordLabel = new Label
+                {
+                    Text = "Confirm New Password:",
+                    Location = new Point(10, 90),
+                    AutoSize = true
+                };
+                confirmPasswordBox = new TextBox
+                {
+                    Location = new Point(150, 90),
+                    Width = 200
+                };
+
+                Button savePasswordButton = new Button
+                {
+                    Text = "Save Password",
+                    Location = new Point(150, 140),
+                    Width = 150
+                };
+
+                Button homepageButton = new Button
+                {
+                    Text = "Back to Homepage",
+                    Location = new Point(150, 170),
+                    Width = 150
+                };
+
+                changePasswordPanel.Controls.Add(oldPasswordLabel);
+                changePasswordPanel.Controls.Add(oldPasswordBox);
+                changePasswordPanel.Controls.Add(newPasswordLabel);
+                changePasswordPanel.Controls.Add(newPasswordBox);
+                changePasswordPanel.Controls.Add(confirmPasswordLabel);
+                changePasswordPanel.Controls.Add(confirmPasswordBox);
+                changePasswordPanel.Controls.Add(savePasswordButton);
+                changePasswordPanel.Controls.Add(homepageButton);
+
+                savePasswordButton.Click += savePasswordButton_Click;
+                homepageButton.Click += homeButton2_Click;
+
+                this.Controls.Add(changePasswordPanel);
+
+                panel7.Visible = false;
+                changePasswordPanel.Visible = true;
+                changePasswordPanel.BringToFront();
+            }
+
+            private void homeButton2_Click(Object sender, EventArgs e)
+            {
+                changePasswordPanel.Visible = false;
+                panel1.Visible = true;
+            }
+
+
+            private void pastPurchases_Click(object sender, EventArgs e)
+            {
+                flowLayoutPanel1.Visible = true;
+                flowLayoutPanel1.BringToFront();
+                DisplayPastP();
+            }
+
+            private void logout_Click(object sender, EventArgs e)
+            {
+                //Close Form2
+                this.Close();
+            }
+
+            //options page
+            private void panel1_Paint(object sender, PaintEventArgs e)
+            {
+
+            }
+
+            private void label1_Click(object sender, EventArgs e)
+            {
+
+            }
+
+            private void textBox1_TextChanged(object sender, EventArgs e)
+            {
+
+            }
+
+            //Jin - added in comfort page
+            private void button1_Click(object sender, EventArgs e)
+            {
+                panel1.Visible = false;
+                panel3.Visible = false;
+                panel2.Visible = true;
+                flowLayoutPanel1.Visible = true;
+
+                //Dessa added display
+                DisplayProducts("Comfort");
+
+
+            }
+
+            //Jin - added in Electronics page
+            private void button2_Click(object sender, EventArgs e)
+            {
+                panel1.Visible = false;
+                panel2.Visible = true;
+                panel3.Visible = true;
+                //Dessa added display
+                DisplayProducts("Electronics");
+
+            }
+
+            //Jin - added in Food Page
+            private void button3_Click(object sender, EventArgs e)
+            {
+                panel1.Visible = false;
+                panel2.Visible = true;
+                panel3.Visible = true;
+                panel4.Visible = true;
+                //Dessa added display
+                DisplayProducts("Food");
+
+            }
+
+            private void panel2_Paint(object sender, PaintEventArgs e)
+            {
+
+            }
+
+            private void label2_Click(object sender, EventArgs e)
+            {
+
+            }
+
+            private void panel3_Paint(object sender, PaintEventArgs e)
+            {
+
+            }
+
+            private void label3_Click(object sender, EventArgs e)
+            {
+
+            }
+
+            private void panel4_Paint(object sender, PaintEventArgs e)
+            {
+
+            }
+
+            private void label4_Click(object sender, EventArgs e)
+            {
+
+            }
+
+            private void panel5_Paint(object sender, PaintEventArgs e)
+            {
+
+            }
+
+            private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+            {
+
+            }
+
+            private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
+            {
+
+            }
+
+            private void splitContainer1_Panel2_Paint(object sender, PaintEventArgs e)
+            {
+
+            }
+
+            //Jin - added in checkout button at shopping cart page, takes it to the last page = panel 6
+            private void button4_Click(object sender, EventArgs e)
+            {
+                panel1.Visible = false;
+                panel2.Visible = true;
+                panel3.Visible = true;
+                panel4.Visible = true;
+                panel5.Visible = true;
+                panel6.Visible = true;
+                panel7.Visible = false;
+                button4.Visible = false;
+
+                flowLayoutPanel1.Visible = false;
+                panel6.BringToFront();
+                //Clear Cart and add to pastPurchases, then save in file
+                foreach (Product item in cart)
+                {
+                    Form1.instance.pastPurchases.Add(item);
+                }
+                cart.Clear();
+                Save(Form1.instance.currentUser, cart, Form1.instance.pastPurchases);
+
+
+
+            }
+
+            private void panel6_Paint(object sender, PaintEventArgs e)
+            {
+
+            }
+
+            //Jin - added in checkout button for food section page
+            private void button6_Click(object sender, EventArgs e)
+            {
+                panel1.Visible = false;
+                panel2.Visible = true;
+                panel3.Visible = true;
+                panel4.Visible = true;
+                panel5.Visible = true;
+                button10.Visible = true;
+                //flowLayoutPanel1.Location = new Point(88, 111);
+                //flowLayoutPanel1.Size = new Size(487, 193);
+                //button4.BringToFront();
+                flowLayoutPanel1.Controls.Clear();
+                DisplayCart();
+                // panel5.BringToFront();
+
+
+            }
+
+            //Jin - added in checkout button for Electronics page
+            private void button7_Click(object sender, EventArgs e)
+            {
+                panel1.Visible = false;
+                panel2.Visible = true;
+                panel3.Visible = true;
+                panel4.Visible = true;
+                panel5.Visible = true;
+                button4.BringToFront();
+                //flowLayoutPanel1.Location = new Point(88, 111);
+                //flowLayoutPanel1.Size = new Size(487, 193);
+                flowLayoutPanel1.Controls.Clear();
+                DisplayCart();
+                //  panel5.BringToFront();
+            }
+
+            //Jin - added in checkout button for Comfort page
+            private void button8_Click(object sender, EventArgs e)
+            {
+                panel1.Visible = false;
+                panel2.Visible = true;
+                panel3.Visible = true;
+                panel4.Visible = true;
+                panel5.Visible = true;
+                //flowLayoutPanel1.Location = new Point(88, 111);
+                //flowLayoutPanel1.Size = new Size(487, 193);
+                flowLayoutPanel1.Controls.Clear();
+                DisplayCart();
+                // panel5.BringToFront();
+
+            }
+
+            //add in back to home page at the end      
+            private void button5_Click_1(object sender, EventArgs e)
+            {
+                flowLayoutPanel1.Visible = false;
+                panel1.Visible = true;
+                panel2.Visible = false;
+                panel3.Visible = false;
+                panel4.Visible = false;
+                panel5.Visible = false;
+                panel6.Visible = false;
+            }
+
+            private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+            {
+
+            }
+
+            //change password (yuri)
+            private void savePasswordButton_Click(object sender, EventArgs e)
+            {
+
+                bool found = false;
+                string filePath = "../../../Data.txt";
+
+                // Read all entries into a list
+                var entries = new List<string>();
+                if (File.Exists(filePath))
+                {
+                    entries = File.ReadAllLines(filePath).ToList();
+                }
+
+                // Check if the username already exists
+                for (int i = 0; i < entries.Count; i++)
+                {
+                    var parts = entries[i].Split('|');
+                    if (parts.Length > 1 && parts[1].Equals(oldPasswordBox.Text) && !found)
+                    {
+
+
+                        // Update the password for current user
+                        entries[i] = ($"{parts[0]}|{newPasswordBox.Text}|{parts[2]}|{parts[3]}");
+                        //user, password, pastpurchases separated by commas, cart separated by commas
+                        found = true;//stop searching once it is found
+                        Console.WriteLine($"Data saved under {parts[0]}");
+                    }
+                }
+                if (!found) Console.WriteLine("Error"); //if something messed up and no user is found, declare that.
+                File.WriteAllLines(filePath, entries);
+            }
+
+            //Jin - Back button for home page from Comfort Page
+            private void button9_Click(object sender, EventArgs e)
+            {
+                panel1.Visible = true;
+                panel2.Visible = false;
+                panel3.Visible = false;
+                flowLayoutPanel1.Visible = false;
+            }
+
+            //Jin - Back button for home page from Electronics Page
+            private void button10_Click(object sender, EventArgs e)
+            {
+                panel1.Visible = true;
+                panel2.Visible = false;
+                panel3.Visible = false;
+                flowLayoutPanel1.Visible = false;
+            }
+
+            //Jin - Back button for home page from Food Page
+            private void button11_Click(object sender, EventArgs e)
+            {
+                panel1.Visible = true;
+                panel2.Visible = false;
+                panel3.Visible = false;
+                flowLayoutPanel1.Visible = false;
+            }
+
+
+
+            //save data function (yuri)
+            public static void Save(string username, List<Product> cart, List<Product> pastPurchases)
+            {
+                bool found = false;
+                string filePath = "../../../Data.txt";
+
+                String[] storedCartArray = new String[cart.Count]; //will hold the multiple ToString of products
+                String[] pastPurchaseArray = new String[pastPurchases.Count]; //will hold the multiple ToString of past purchases
+
+                // Read all entries into a list
+                var entries = new List<string>();
+                if (File.Exists(filePath))
+                {
+                    entries = File.ReadAllLines(filePath).ToList();
+                }
+
+                // Check if the username already exists
+                for (int i = 0; i < entries.Count; i++)
+                {
+                    var parts = entries[i].Split('|');
+                    if (parts[0].Equals(username) && !found)
+                    {
+                        //iterate through both list and assign them to arrays to be stored, breaking them into parts
+                        //Convert from product to array to string for saving and then reverse when pulling
+                        //doesn't account for duplicates yet.
+                        foreach (Product item in cart)
+                        {
+                            storedCartArray[cart.IndexOf(item)] = (item.ToString());
+                        }
+                        foreach (Product item in pastPurchases)
+                        {
+                            pastPurchaseArray[pastPurchases.IndexOf(item)] = (item.ToString());
+                        }
+
+                        // Update the data for current user
+                        entries[i] = ($"{username}|{parts[1]}|{String.Join(',', pastPurchases)}|{String.Join(',', storedCartArray)}");
+
+                        //user, password, pastpurchases separated by commas, cart separated by commas
+                        found = true;//stop searching once it is found
+                        Console.WriteLine($"Data saved under {username}");
+
+
+                    }
+                }
+                if (!found) Console.WriteLine("Error"); //if something messed up and no user is found, declare that.
+                File.WriteAllLines(filePath, entries);
+            }
+
+            private void button12_Click(object sender, EventArgs e)
+            {
+                // Hide all panels except panel1
+                panel1.Visible = true;
+                panel2.Visible = false;
+                panel3.Visible = false;
+                panel4.Visible = false;
+                panel5.Visible = false;
+                panel6.Visible = false;
+                panel7.Visible = false;
+
+                // Ensure flowLayoutPanel1 is also hidden
+                flowLayoutPanel1.Visible = false;
+            }
         }
-        //Method
-        //Created by Shawn, optimized for saving to Data.txt
-        public override string ToString()
+        //Product Class
+        //Created by Dessa
+        public class Product
         {
-            return $"{Stars}:{Comment}:{Username}";
+            public string Name { get; set; }
+            public decimal Price { get; set; }
+            public string Category { get; set; }
+            public List<Rating> Ratings { get; set; }
+            public string ShippingTime { get; set; }
+
+            //initalize
+            public Product(string name, decimal price, string category, List<Rating> ratings, string shippingTime)
+            {
+                Name = name;
+                Price = price;
+                Category = category;
+                Ratings = ratings;
+                ShippingTime = shippingTime;
+            }
+            //Method
+            //Created by Shawn, optimized for saving to Data.txt
+            public override string ToString()
+            {
+                return $"{Name},{Price},{Category},{string.Join("~", Ratings)}, {ShippingTime}";
+            }
+        }
+
+        //Rating Class
+        //Created by Dessa
+        public class Rating
+        {
+            public int Stars { get; private set; }
+            public string Comment { get; private set; }
+            public string Username { get; private set; }
+            public Rating(int stars, string comment, string username)
+            {
+                if (stars < 1 || stars > 5)
+                {
+                    throw new ArgumentException("Rating must be between 1 and 5");
+                }
+
+                Stars = stars;
+                Comment = comment;
+                Username = username;
+            }
+            //Method
+            //Created by Shawn, optimized for saving to Data.txt
+            public override string ToString()
+            {
+                return $"{Stars}:{Comment}:{Username}";
+            }
         }
     }
-}
 
 
