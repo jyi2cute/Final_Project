@@ -750,6 +750,7 @@ namespace Final_Project
                 panel4.Visible = true;
                 panel5.Visible = true;
                 button10.Visible = true;
+                button4.Visible = true;
                 //flowLayoutPanel1.Location = new Point(88, 111);
                 //flowLayoutPanel1.Size = new Size(487, 193);
                 //button4.BringToFront();
@@ -768,6 +769,7 @@ namespace Final_Project
                 panel3.Visible = true;
                 panel4.Visible = true;
                 panel5.Visible = true;
+                button4.Visible = true;
                 button4.BringToFront();
                 //flowLayoutPanel1.Location = new Point(88, 111);
                 //flowLayoutPanel1.Size = new Size(487, 193);
@@ -784,9 +786,11 @@ namespace Final_Project
                 panel3.Visible = true;
                 panel4.Visible = true;
                 panel5.Visible = true;
-                //flowLayoutPanel1.Location = new Point(88, 111);
-                //flowLayoutPanel1.Size = new Size(487, 193);
-                flowLayoutPanel1.Controls.Clear();
+            button4.Visible = true;
+
+            //flowLayoutPanel1.Location = new Point(88, 111);
+            //flowLayoutPanel1.Size = new Size(487, 193);
+            flowLayoutPanel1.Controls.Clear();
                 DisplayCart();
                 // panel5.BringToFront();
 
