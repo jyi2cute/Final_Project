@@ -22,13 +22,13 @@ namespace Final_Project
             currentUser = currentUser;
             pastPurchases = pastPurchases;
         }
-        //username label - login page
+        //username label - login page : Jin
         private void label1_Click(object sender, EventArgs e)
         {
 
         }
 
-        //password label - login page
+        //password label - login page : Jin
         private void label2_Click(object sender, EventArgs e)
         {
 
@@ -39,6 +39,8 @@ namespace Final_Project
         {
 
         }
+
+
 
         //For the enter button in the login page
         private void button1_Click(object sender, EventArgs e)
@@ -56,6 +58,7 @@ namespace Final_Project
 
         }
 
+        //username input element, nothing too important to regard - Jin
         private void usernameBox_TextChanged(object sender, EventArgs e)
         {
 
@@ -142,7 +145,7 @@ namespace Final_Project
             return false;
         }
 
-        //createAccount function - 
+        //createAccount function - Yuri
         private static void CreateAccount(string username, string password)
         {
             string filePath = "../../../Data.txt";

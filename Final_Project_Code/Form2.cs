@@ -8,6 +8,7 @@ using System.Drawing;
 using System.Drawing.Text;
 using System.Linq;
 using System.Reflection.Metadata.Ecma335;
+using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -334,6 +335,8 @@ namespace Final_Project
                 flowLayoutPanel1.Controls.Add(panel);
             }
         }
+
+        //past purchases
         private void DisplayPastP()
         {
             flowLayoutPanel1.Controls.Clear();
@@ -490,6 +493,7 @@ namespace Final_Project
             }
 
 
+            //accout button 
             private void accountButton_Click(object sender, EventArgs e)
             {
                 // Hide other panels and show Panel 7
@@ -503,6 +507,7 @@ namespace Final_Project
                 panel7.BringToFront(); // Ensure Panel 7 is displayed on top
             }
 
+            //home button 
             private void homeButton_Click(Object sender, EventArgs e)
             {
                 panel7.Visible = false;
@@ -510,6 +515,7 @@ namespace Final_Project
                 flowLayoutPanel1.Visible = false;
             }
 
+            //change password function
             private void changePassword_Click(object sender, EventArgs e)
             {
                 changePasswordPanel = new Panel
@@ -660,36 +666,44 @@ namespace Final_Project
 
             }
 
+            //panel for comfort page - Jin
             private void panel2_Paint(object sender, PaintEventArgs e)
             {
 
             }
 
+            //comfort page label - Jin
             private void label2_Click(object sender, EventArgs e)
             {
 
             }
 
+            //panel for electronics page - Jin
             private void panel3_Paint(object sender, PaintEventArgs e)
             {
 
             }
 
+
+            //electronics page label - Jin
             private void label3_Click(object sender, EventArgs e)
             {
 
             }
 
+            //panel for food page - Jin
             private void panel4_Paint(object sender, PaintEventArgs e)
             {
 
             }
-
+          
+            //label for food page - Jin
             private void label4_Click(object sender, EventArgs e)
             {
 
             }
 
+            //panel for shopping cart page
             private void panel5_Paint(object sender, PaintEventArgs e)
             {
 
@@ -699,7 +713,8 @@ namespace Final_Project
             {
 
             }
-
+             
+            //disrgard the split containers, not really necassary in the context
             private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
             {
 
@@ -736,6 +751,7 @@ namespace Final_Project
 
             }
 
+            //Jin - panel for the last page
             private void panel6_Paint(object sender, PaintEventArgs e)
             {
 
@@ -796,7 +812,7 @@ namespace Final_Project
 
             }
 
-            //add in back to home page at the end      
+            //Jin - add in back to home page at the end      
             private void button5_Click_1(object sender, EventArgs e)
             {
                 flowLayoutPanel1.Visible = false;
@@ -808,6 +824,7 @@ namespace Final_Project
                 panel6.Visible = false;
             }
 
+            //panel for the items (Dessa's part)
             private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
             {
 
@@ -923,6 +940,7 @@ namespace Final_Project
                 File.WriteAllLines(filePath, entries);
             }
 
+        //back button from the cart page
         private void button12_Click(object sender, EventArgs e)
         {
             // Hide all panels except panel1
@@ -934,7 +952,7 @@ namespace Final_Project
             panel6.Visible = false;
             panel7.Visible = false;
 
-            // Ensure flowLayoutPanel1 is also hidden
+            //flowLayoutPanel1 is hidden
             flowLayoutPanel1.Visible = false;
         }
     }

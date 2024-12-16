@@ -176,10 +176,10 @@
             // 
             // panel5
             // 
-            panel5.Controls.Add(button12);
             panel5.Controls.Add(panel6);
             panel5.Controls.Add(button4);
             panel5.Controls.Add(label5);
+            panel5.Controls.Add(button12);
             panel5.Location = new Point(10, 18);
             panel5.Margin = new Padding(2);
             panel5.Name = "panel5";
@@ -202,7 +202,7 @@
             panel6.Controls.Add(panel7);
             panel6.Controls.Add(button5);
             panel6.Controls.Add(label8);
-            panel6.Location = new Point(12, 27);
+            panel6.Location = new Point(22, 30);
             panel6.Margin = new Padding(2);
             panel6.Name = "panel6";
             panel6.Size = new Size(621, 350);
