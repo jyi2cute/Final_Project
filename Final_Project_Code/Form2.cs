@@ -505,6 +505,7 @@ namespace Final_Project
             {
                 panel7.Visible = false;
                 panel1.Visible = true;
+                flowLayoutPanel1.Visible = false;
             }
 
             private void changePassword_Click(object sender, EventArgs e)
