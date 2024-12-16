@@ -84,18 +84,19 @@ namespace Final_Project
                                 found = true;
                                 Console.WriteLine($"Found login for {username}: {parts[1]}");
                                 Form1.instance.currentUser = parts[0];
-                                string[] loadedPurchases = parts[2].Split(',');
+                                string[] loadedPurchases = parts[2].Split('*') ;
 
                                 //iterate through this array and add these values to loaded purchases
                                 //if this isn't empty
                                 if (loadedPurchases.Length > 1)
                                 {
-                                    foreach (string purchase in loadedPurchases)
+                                    foreach (string purchaseLine in loadedPurchases)
                                     {
+                                        string[] purchase = purchaseLine.Split(",") ;
                                         //"{Name},{Price},{Category},{Ratings},{ShippingTime}"
                                         //ratings being their own List
                                         string name = purchase[0].ToString();
-                                        int price = int.Parse(purchase[1].ToString());
+                                        decimal price = Convert.ToDecimal(purchase[1].ToString());
                                         string category = purchase[2].ToString();
 
                                         //$"{Stars},{Comment},{Username}";
@@ -103,16 +104,13 @@ namespace Final_Project
                                         string[] ratingLines = purchase[3].ToString().Split('~');
                                         foreach (string rating in ratingLines)
                                         {
-                                            string[] ratingParts = purchase[3].ToString().Split(':');
-                                            foreach (string text in ratingParts)
-                                            {
+                                            string[] ratingParts = rating.ToString().Split(':');
                                                 //(ratingStars, ratingComment, ratingUser);
                                                 int ratingStars = int.Parse(ratingParts[0].ToString());
                                                 string ratingComment = ratingParts[1].ToString();
                                                 string ratingUser = ratingParts[2].ToString();
                                                 Rating oldRate = new Rating(ratingStars, ratingComment, ratingUser);// one line for rating
                                                 Form1.instance.oldRatings.Add(oldRate);
-                                            }
                                         }
 
                                         string shippingTime = purchase[4].ToString();

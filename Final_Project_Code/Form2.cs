@@ -904,7 +904,7 @@ namespace Final_Project
                         }
 
                         // Update the data for current user
-                        entries[i] = ($"{username}|{parts[1]}|{String.Join(',', pastPurchases)}|{String.Join(',', storedCartArray)}");
+                        entries[i] = ($"{username}|{parts[1]}|{String.Join('*', pastPurchases)}|{String.Join(',', storedCartArray)}");
 
                         //user, password, pastpurchases separated by commas, cart separated by commas
                         found = true;//stop searching once it is found
