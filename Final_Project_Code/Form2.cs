@@ -311,23 +311,23 @@ namespace Final_Project
                     AutoSize = true
                 };
 
-                var addToCartButton = new Button
+                var removeCartButton = new Button
                 {
-                    Text = "Add to Cart",
+                    Text = "Remove",
                     Location = new Point(10, 70),
                     Size = new Size(100, 25)
                 };
 
-                addToCartButton.Click += (sender, e) =>
+                removeCartButton.Click += (sender, e) =>
                 {
-                    cart.Add(product);
-                    MessageBox.Show($"{product.Name} added to cart!", "Cart Update");
+                    cart.Remove(product);
+                    MessageBox.Show($"{product.Name} Removed from cart!", "Cart Update");
                 };
 
                 panel.Controls.Add(nameLabel);
                 panel.Controls.Add(priceLabel);
                 panel.Controls.Add(ratingLabel);
-                panel.Controls.Add(addToCartButton);
+                panel.Controls.Add(removeCartButton);
 
                 flowLayoutPanel1.Controls.Add(panel);
             }
