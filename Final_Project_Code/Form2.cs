@@ -238,6 +238,7 @@ namespace Final_Project
                 addToCartButton.Click += (sender, e) =>
                 {
                     cart.Add(product);
+                    Save(Form1.instance.currentUser, cart, Form1.instance.pastPurchases);
                     MessageBox.Show($"{product.Name} added to cart!", "Cart Update");
                 };
 
@@ -250,7 +251,7 @@ namespace Final_Project
             }
         }
 
-        //Shawn's Modified Display Function
+        //Shawn's Modified Display Functions
         private void DisplayCart()
         {
             flowLayoutPanel1.Controls.Clear();
@@ -331,6 +332,9 @@ namespace Final_Project
                 flowLayoutPanel1.Controls.Add(panel);
             }
         }
+
+
+
         public Form2()
         {
             InitializeComponent();
@@ -525,7 +529,66 @@ namespace Final_Project
 
         private void pastPurchases_Click(object sender, EventArgs e)
         {
+            flowLayoutPanel1.Visible = true;
+            flowLayoutPanel1.BringToFront();
+            flowLayoutPanel1.Controls.Clear();
+            flowLayoutPanel1.Location = new Point(88, 111);
+            flowLayoutPanel1.Size = new Size(487, 193);
+            //flowLayoutPanel1.Visible = false;
 
+            //  flowLayoutPanel1.Invalidate();
+            if (Form1.instance.pastPurchases.Count == 3)
+            {
+                var emptyMessageLabel = new Label
+                {
+                    Text = "No Past Purchases.",
+                    Location = new Point(10, 10),
+                    AutoSize = true
+                };
+                flowLayoutPanel1.Controls.Add(emptyMessageLabel);
+                //flowLayoutPanel1.Controls.Clear();
+                //flowLayoutPanel1.Invalidate();
+                return; // Exit the method early
+            }
+
+            flowLayoutPanel1.Visible = true;
+            flowLayoutPanel1.BringToFront();
+
+
+            //display all the prodects when filtered
+            foreach (var product in Form1.instance.pastPurchases)
+            {
+                var panel = new Panel
+                {
+                    Size = new Size(200, 100),
+                    BorderStyle = BorderStyle.FixedSingle
+                };
+
+                var nameLabel = new Label
+                {
+                    Text = product.Name,
+                    Location = new Point(10, 10),
+                    AutoSize = true
+                };
+
+                var priceLabel = new Label
+                {
+                    Text = $"Price: ${product.Price:F2}",
+                    Location = new Point(10, 30),
+                    AutoSize = true
+                };
+
+                var ratingLabel = new Label
+                {
+                    Text = product.Ratings.Any()
+                    ? $"Rating: {new string('★', (int)product.Ratings.Average(r => r.Stars))}"
+                    : "No ratings yet",
+                    Location = new Point(10, 50),
+                    AutoSize = true
+                };
+
+                flowLayoutPanel1.Controls.Add(panel);
+            }
         }
 
         private void logout_Click(object sender, EventArgs e)
@@ -651,9 +714,15 @@ namespace Final_Project
 
             flowLayoutPanel1.Visible = false;
             panel6.BringToFront();
-
-            Save(Form1.instance.currentUser, cart, Form1.instance.pastPurchases);
+            //Clear Cart and add to pastPurchases, then save in file
+            foreach(Product item in cart)
+            {
+                Form1.instance.pastPurchases.Add(item);
+            }
             cart.Clear();
+            Save(Form1.instance.currentUser, cart, Form1.instance.pastPurchases);
+           
+            
 
         }
 
