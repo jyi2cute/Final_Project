@@ -715,14 +715,14 @@ namespace Final_Project
             flowLayoutPanel1.Visible = false;
             panel6.BringToFront();
             //Clear Cart and add to pastPurchases, then save in file
-            foreach(Product item in cart)
+            foreach (Product item in cart)
             {
                 Form1.instance.pastPurchases.Add(item);
             }
             cart.Clear();
             Save(Form1.instance.currentUser, cart, Form1.instance.pastPurchases);
-           
-            
+
+
 
         }
 
@@ -909,7 +909,29 @@ namespace Final_Project
             File.WriteAllLines(filePath, entries);
         }
 
+        //added in back button at cart page
         private void button12_Click(object sender, EventArgs e)
+        {
+            // Hide all panels except panel1
+            panel1.Visible = true;
+            panel2.Visible = false;
+            panel3.Visible = false;
+            panel4.Visible = false;
+            panel5.Visible = false;
+            panel6.Visible = false;
+            panel7.Visible = false;
+
+            // Ensure flowLayoutPanel1 is also hidden
+            flowLayoutPanel1.Visible = false;
+        }
+
+        private void panel8_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        //added in back button at displaypastpurchases page
+        private void button13_Click(object sender, EventArgs e)
         {
             // Hide all panels except panel1
             panel1.Visible = true;

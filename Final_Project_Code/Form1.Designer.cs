@@ -36,6 +36,7 @@
             button1 = new Button();
             panel1 = new Panel();
             panel2 = new Panel();
+            button3 = new Button();
             button2 = new Button();
             passwordInput = new TextBox();
             label6 = new Label();
@@ -43,7 +44,6 @@
             label5 = new Label();
             label4 = new Label();
             linkLabel1 = new LinkLabel();
-            button3 = new Button();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             SuspendLayout();
@@ -132,6 +132,16 @@
             panel2.TabIndex = 7;
             panel2.Paint += panel2_Paint;
             // 
+            // button3
+            // 
+            button3.Location = new Point(326, 297);
+            button3.Name = "button3";
+            button3.Size = new Size(112, 34);
+            button3.TabIndex = 6;
+            button3.Text = "Back";
+            button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
+            // 
             // button2
             // 
             button2.Location = new Point(296, 258);
@@ -193,16 +203,6 @@
             linkLabel1.TabStop = true;
             linkLabel1.Text = "Click here to Sign Up!";
             linkLabel1.LinkClicked += linkLabel1_LinkClicked;
-            // 
-            // button3
-            // 
-            button3.Location = new Point(326, 297);
-            button3.Name = "button3";
-            button3.Size = new Size(112, 34);
-            button3.TabIndex = 6;
-            button3.Text = "Back";
-            button3.UseVisualStyleBackColor = true;
-            button3.Click += button3_Click;
             // 
             // Form1
             // 

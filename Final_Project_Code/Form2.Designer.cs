@@ -54,12 +54,15 @@
             label2 = new Label();
             button8 = new Button();
             button9 = new Button();
+            panel8 = new Panel();
+            button13 = new Button();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
             panel4.SuspendLayout();
             panel5.SuspendLayout();
             panel6.SuspendLayout();
+            panel8.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -198,6 +201,7 @@
             // 
             // panel6
             // 
+            panel6.Controls.Add(panel8);
             panel6.Controls.Add(panel7);
             panel6.Controls.Add(button5);
             panel6.Controls.Add(label8);
@@ -357,6 +361,25 @@
             button9.UseVisualStyleBackColor = true;
             button9.Click += button9_Click;
             // 
+            // panel8
+            // 
+            panel8.Controls.Add(button13);
+            panel8.Location = new Point(53, 40);
+            panel8.Name = "panel8";
+            panel8.Size = new Size(513, 248);
+            panel8.TabIndex = 3;
+            panel8.Paint += panel8_Paint;
+            // 
+            // button13
+            // 
+            button13.Location = new Point(32, 24);
+            button13.Name = "button13";
+            button13.Size = new Size(112, 34);
+            button13.TabIndex = 0;
+            button13.Text = "Back";
+            button13.UseVisualStyleBackColor = true;
+            button13.Click += button13_Click;
+            // 
             // Form2
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -380,6 +403,7 @@
             panel5.PerformLayout();
             panel6.ResumeLayout(false);
             panel6.PerformLayout();
+            panel8.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -410,5 +434,7 @@
         private Button button10;
         private Button button11;
         private Button button12;
+        private Panel panel8;
+        private Button button13;
     }
 }

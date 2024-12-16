@@ -22,11 +22,19 @@ namespace Final_Project
             currentUser = currentUser;
             pastPurchases = pastPurchases;
         }
+        //username label - login page
         private void label1_Click(object sender, EventArgs e)
         {
 
         }
 
+        //password label - login page
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        //Jin - Storefront title
         private void label3_Click(object sender, EventArgs e)
         {
 
@@ -136,6 +144,7 @@ namespace Final_Project
             return false;
         }
 
+        //createAccount function - 
         private static void CreateAccount(string username, string password)
         {
             string filePath = "../../../Data.txt";
@@ -147,13 +156,14 @@ namespace Final_Project
         }
 
 
-
+        //Jin - Link label to the sign up page
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             panel1.Visible = true;
             panel2.Visible = true;
         }
 
+        //Jin: panel 2 - Sign up page
         private void panel2_Paint(object sender, PaintEventArgs e)
         {
 
@@ -169,10 +179,13 @@ namespace Final_Project
             form2.Show();
         }
 
+        //Jin - added in a back button to login page
         private void button3_Click(object sender, EventArgs e)
         {
             panel2.Visible = false;
             panel1.Visible = true;
         }
+
+       
     }
 }
